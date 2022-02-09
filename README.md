@@ -8,7 +8,10 @@
 # ソースのダウンロード（git clone）
  - ターミナルを開く（Windowsの場合は、コマンドプロンプト）
  - 本リポジトリのソースコードをローカル環境（お手持ちのPC）にダウンロードする
-```git clone https://github.com/prum-jp/sado-boot-camp-ships.git```
+
+```
+git clone https://github.com/prum-jp/sado-boot-camp-ships.git
+```
 
 # ローカル環境構築
  - チェンジディレクトリ
