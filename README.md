@@ -1,24 +1,15 @@
-# README
+# 佐渡コーディングブートキャンプ
+ - 佐渡汽船の予約システムを作ろう！
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 前提条件
+ - Dockerがインストール済みであること
+ - Gitがインストール済みであること
 
-Things you may want to cover:
+# ソースのダウンロード（git clone）
+```git clone https://github.com/prum-jp/sado-boot-camp-ships.git```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# ローカル環境構築
+```cd sado-boot-camp-ships```
+```docker-compose build```
+```docker-compose run web rails db:create```
+```docker-compose up -d```
