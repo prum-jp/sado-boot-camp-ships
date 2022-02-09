@@ -6,10 +6,27 @@
  - Gitがインストール済みであること
 
 # ソースのダウンロード（git clone）
+ - ターミナルを開く（Windowsの場合は、コマンドプロンプト）
+ - 本リポジトリのソースコードをローカル環境（お手持ちのPC）にダウンロードする
 ```git clone https://github.com/prum-jp/sado-boot-camp-ships.git```
 
 # ローカル環境構築
-```cd sado-boot-camp-ships```
-```docker-compose build```
-```docker-compose run web rails db:create```
-```docker-compose up -d```
+ - チェンジディレクトリ
+```
+cd sado-boot-camp-ships
+```
+
+ - Docker環境を構築
+```
+docker-compose build
+```
+
+ - データベースを作成
+```
+docker-compose run web rails db:create
+```
+
+ - Docker環境を立ち上げる
+```
+docker-compose up -d
+```
