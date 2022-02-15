@@ -1,0 +1,202 @@
+<body class="home blog wp-custom-logo boarding-top-template app-data index-data home-data front-page-data">
+  <main class="main" role="document"> 
+    <section class="boarding-eyecatch hero">
+      <div class="background-container">
+        <div class="background" style="background-image: url(https://www.sadokisen.co.jp/wp-content/uploads/2019/02/eyecatch01.jpg)" data-eyecatch-duration="5000" data-eyecatch-image-1="https://www.sadokisen.co.jp/wp-content/uploads/2019/02/eyecatch01.jpg" data-eyecatch-image-2="https://www.sadokisen.co.jp/wp-content/uploads/2020/08/4e6ad9809408387ce7a4feba39569b38.jpg" data-eyecatch-image-3="https://www.sadokisen.co.jp/wp-content/uploads/2019/12/c5ac2818e0d97f7591e8ffeed82a7eb2_compress.jpg"></div>
+      </div>
+      <div class="service-status-mobile service-status">
+        <p class="service-status-text"> </p>
+      </div>
+      <div class="section">
+        <div class="description">
+          <div class="description-circle">
+            <figure class="blur-background">
+              <div class="blur-img" style="background-image: url(https://www.sadokisen.co.jp/wp-content/uploads/2019/02/eyecatch01.jpg)"></div>
+            </figure>
+            <div class="alpha-overlay"></div>
+            <div class="container">
+              <p class="text"> ご利用の皆様へ<br /> <br /> 2/7に各種発表を行いましたが、当面の運航計画に変更はありませんので安心してご利用ください。 <a href="https://corporate.sadokisen.co.jp/ir/for-stockholders/">詳しく見る</a> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="wave">
+        <div class="container">
+          <div class="service-status">
+            <p class="service-status-text"> </p>
+          </div>
+          <div class="controls">
+            <a class="kl-button is-medium" href="https://reservation.sadokisen.co.jp/webyoyaku/WJ/WJG0420.aspx?Lang=ja-JP">会員ログイン</a> 
+            </div> 
+            <a class="mobile-scroll down-scroll" href="#scroll-bottom">
+        <span class="scroll-text">
+          下にスクロール
+        </span>
+        <img class="floating" src="https://www.sadokisen.co.jp/wp-content/themes/klee-official/dist/images/pict_caret@2x_62818e92.png" style="margin-bottom: 8.36506px;">
+      </a> </div>
+        <div id="scroll-bottom"></div>
+      </div>
+      <script>
+        jQuery(function($) {
+            let $eyecatchBG = $('.boarding-eyecatch .background');
+            let $blurEyecatchBG = $('.boarding-eyecatch .description .blur-img');
+            let $description = $('.boarding-eyecatch .description .text');
+    
+            // duration
+            let duration = 10000;
+            if ($eyecatchBG.attr('data-eyecatch-duration')) {
+              duration = $eyecatchBG.attr('data-eyecatch-duration');
+            }
+    
+            // image
+            let images = [];
+            if ($eyecatchBG.attr('data-eyecatch-image-1')) {
+              images.push($eyecatchBG.attr('data-eyecatch-image-1'));
+            }
+            if ($eyecatchBG.attr('data-eyecatch-image-2')) {
+              images.push($eyecatchBG.attr('data-eyecatch-image-2'));
+            }
+            if ($eyecatchBG.attr('data-eyecatch-image-3')) {
+              images.push($eyecatchBG.attr('data-eyecatch-image-3'));
+            }
+    
+            // bgSwitcher
+            let $backgrounds = $('.boarding-eyecatch .background');
+            let $blurs = $('.boarding-eyecatch .description .blur-img');
+    
+            const lazyStartTime = 3000;
+            setTimeout(lazyStart, lazyStartTime);
+            function lazyStart() {
+              // imageSwitcher
+              $backgrounds.bgSwitcher({
+                  images: images,
+                  effect: "fade",
+                  start: false
+              });
+              $blurs.bgSwitcher({
+                  images: images,
+                  effect: "fade",
+                  start: false
+              });
+              let imageCount = 0;
+              let imageTid = setTimeout(switchImage, 0);
+              function switchImage() {
+                $backgrounds.bgSwitcher('select', imageCount);
+                $blurs.bgSwitcher('select', imageCount);
+                imageCount++;
+                if(imageCount >= images.length) {
+                  imageCount = 0;
+                }
+                imageTid = setTimeout(switchImage, duration);
+              }
+              
+              // textSwitcher
+              $descriptions = $('.boarding-eyecatch .description .text');
+              let textCount = 0;
+              let textTid = setTimeout(switchTextFirst, 0);
+              function switchTextFirst() {
+                textCount++;
+                if(textCount >= $descriptions.length) {
+                  textCount = 0;
+                }
+                textTid = setTimeout(switchText, duration);
+              }
+              function switchText() {
+                $descriptions.addClass('hide');
+                $descriptions.removeClass('fadein');
+                $descriptions.eq(textCount).removeClass('hide');
+                $descriptions.eq(textCount).addClass('fadein');
+                textCount++;
+                if(textCount >= $descriptions.length) {
+                  textCount = 0;
+                }
+                textTid = setTimeout(switchText, duration);
+              }
+            }
+          });
+      </script>
+    </section>
+    <section class="mobile-top-menu section">
+      <div class="important-buttons">
+        <a class="button btn-reservation" href="https://reservation.sadokisen.co.jp/webyoyaku/WJ/WJG0400.aspx?Lang=ja-JP">
+          <p class="sub-label">乗船券を</p>
+          <p class="primary-label">ネット予約</p>
+        </a> <a class="button btn-trip-top" href="/trip-top">
+            <img class="logo-image" src="https://www.sadokisen.co.jp/wp-content/themes/klee-official/dist/images/sadotabi_logo_white_9a877813.png">
+          </a> </div>
+      <div class="menu">
+        <div class="menu-%e4%b9%97%e8%88%b9%e4%ba%88%e7%b4%84top%e3%83%a1%e3%83%8b%e3%83%a5%e3%83%bc-container">
+          <ul id="menu-%e4%b9%97%e8%88%b9%e4%ba%88%e7%b4%84top%e3%83%a1%e3%83%8b%e3%83%a5%e3%83%bc" class="menu-items">
+            <li id="menu-item-64" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-64"><a href="https://www.sadokisen.co.jp/service-status/">運航状況</a></li>
+            <li id="menu-item-503" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-503"><a href="https://www.sadokisen.co.jp/reservation/">予約/空席状況</a></li>
+            <li id="menu-item-2188" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2188"><a href="https://www.sadokisen.co.jp/faretables/">運賃表</a></li>
+            <li id="menu-item-62" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-62"><a href="https://www.sadokisen.co.jp/timetables/">時刻表</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="reservation-news section">
+      <div class="container">
+        <div class="content">
+          <div class="reservation">
+            <p class="decoration">Reservation</p>
+            <h3 class="title">乗船予約</h3>
+            <div class="reservation-content">
+              <div id="top-boarding-reservation" class="top-boarding-reservation">
+                <div class="controls">
+                  <div class="control">
+                    <div class="control-label"> <span class="label">往復/片道</span><span class="empty"></span> </div>
+                    <div class="kl-select"> <select name="ways">
+                    <option value="1">往復</option>
+                    <option value="2">片道</option>
+                </select> </div>
+                  </div>
+                  <div class="control">
+                    <div class="control-label"> <span class="label">人数</span><span class="empty"></span> </div>
+                    <div class="control-number-of-people">
+                      <div class="number-control adult">
+                        <div class="sub-labels">
+                          <p class="sub-label">大人</p>
+                          <p class="sub-desc"></p>
+                        </div> <input type=number min="0" max="100" name="adult" value='' placeholder='0'> <span class="count">名</span> </div>
+                      <div class="number-control adult">
+                        <div class="sub-labels">
+                          <p class="sub-label">子供</p>
+                          <p class="sub-desc">小学生対象</p>
+                        </div> <input type=number min="0" max="100" name="child" value='' placeholder='0'> <span class="count">名</span> </div>
+                    </div>
+                  </div>
+                  <div class="control control-forward_port">
+                    <div class="control-label"> <span class="label">行き&#047;乗船港</span><span class="empty"></span> </div>
+                    <div class="kl-select"> <select name="forward_port">
+                    <option value="">選択して下さい</option>
+                    <option value="N">新潟</option>
+                    <option value="R">両津</option>
+                    <option value="NA">直江津</option>
+                    <option value="O">小木</option>
+                </select> </div>
+                  </div>
+                  <div class="control control-backward_port">
+                    <div class="control-label"> <span class="label">帰り&#047;乗船港</span><span class="empty"></span> </div>
+                    <div class="kl-select"> <select name="backward_port">
+                    <option value="">選択して下さい</option>
+                    <option value="N">新潟</option>
+                    <option value="R">両津</option>
+                    <option value="NA">直江津</option>
+                    <option value="O">小木</option>
+                </select> </div>
+                  </div>
+                  <div class="control control-forward_date">
+                    <div class="control-label"> <span class="label">往路乗船日</span><span class="empty"></span> </div> <input type="date" name="forward_date" value="2022-02-16" min="2022-02-16" max="2022-05-15"> </div>
+                  <div class="control control-backward_date">
+                    <div class="control-label"> <span class="label">復路乗船日</span><span class="empty"></span> </div> <input type="date" name="backward_date" value="2022-02-16" min="2022-02-16" max="2022-05-24"> </div>
+                </div> <button id="top-boarding-reservation-btn" class="kl-button is-medium" data-reservation-link="https://reservation.sadokisen.co.jp/webyoyaku/WJ/WJG0400.aspx?Lang=ja-JP">予約する</button>
+                <p id="warning-message" class="warning-message"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
