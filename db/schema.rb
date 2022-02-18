@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2022_02_16_091142) do
 
   create_table "cars", force: :cascade do |t|
     t.integer "car_model"
-    t.string "car_displacement"
+    t.integer "car_displacement"
     t.string "car_registered_place"
     t.string "car_model_number"
     t.string "car_kana"

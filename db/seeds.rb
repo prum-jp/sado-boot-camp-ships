@@ -36,11 +36,11 @@ ActiveRecord::Base.transaction do
   Timetable.create!( departure_port_id: ryoutu_port.id, departure_time: '12:55', arrival_port_id: niigata_port.id, arrival_time: '14:02', ship_id: jetfoil.id)
   Timetable.create!( departure_port_id: ryoutu_port.id, departure_time: '16:25', arrival_port_id: niigata_port.id, arrival_time: '17:32', ship_id: jetfoil.id)
 
-  tokutou = ShipClass.create!(name:'特等',max_passenger:10,ship_section: :car_ferry)
-  ittou_juutan = ShipClass.create!(name:'1等ジュウタン',max_passenger:10,ship_section: :car_ferry)
-  ittou_isu = ShipClass.create!(name:'1等イス',max_passenger:10,ship_section: :car_ferry)
+  tokutou = ShipClass.create!(name:'特等',max_passenger:50,ship_section: :car_ferry)
+  ittou_juutan = ShipClass.create!(name:'1等ジュウタン',max_passenger:50,ship_section: :car_ferry)
+  ittou_isu = ShipClass.create!(name:'1等イス',max_passenger:50,ship_section: :car_ferry)
   nitou = ShipClass.create!(name:'2等',max_passenger:'',ship_section: :car_ferry)
-  jetfoil = ShipClass.create!(name:'ジェットフォイル',max_passenger:'',ship_section: :jetfoil)
+  jetfoil = ShipClass.create!(name:'ジェットフォイル',max_passenger:100,ship_section: :jetfoil)
 
   Fare.create!(price:7150,type_section: :adult,ship_class_id: tokutou.id)
   Fare.create!(price:4870,type_section: :adult,ship_class_id: ittou_isu.id)
