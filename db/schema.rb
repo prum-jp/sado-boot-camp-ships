@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 2022_02_16_091142) do
 
   create_table "fares", force: :cascade do |t|
     t.integer "price", null: false
-    t.integer "humen_section", null: false
-    t.bigint "ship_class_id", null: false
+    t.integer "type_section"
+    t.bigint "ship_class_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["ship_class_id"], name: "index_fares_on_ship_class_id"
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 2022_02_16_091142) do
   create_table "ship_classes", force: :cascade do |t|
     t.string "name", null: false
     t.integer "max_passenger"
-    t.integer "ship_section", null: false
+    t.integer "ship_section"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

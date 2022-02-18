@@ -42,20 +42,20 @@ ActiveRecord::Base.transaction do
   nitou = ShipClass.create!(name:'2等',max_passenger:'',ship_section: :car_ferry)
   jetfoil = ShipClass.create!(name:'ジェットフォイル',max_passenger:'',ship_section: :jetfoil)
 
-  Fare.create!(price:7150,humen_section: :adult,ship_class_id: tokutou.id)
-  Fare.create!(price:4870,humen_section: :adult,ship_class_id: ittou_isu.id)
-  Fare.create!(price:4870,humen_section: :adult,ship_class_id: ittou_juutan.id)
-  Fare.create!(price:2810,humen_section: :adult,ship_class_id: nitou.id)
-  Fare.create!(price:3580,humen_section: :child,ship_class_id: tokutou.id)
-  Fare.create!(price:2440,humen_section: :child,ship_class_id: ittou_isu.id)
-  Fare.create!(price:2440,humen_section: :child,ship_class_id: ittou_juutan.id)
-  Fare.create!(price:1410,humen_section: :child,ship_class_id: nitou.id)
+  Fare.create!(price:7150,type_section: :adult,ship_class_id: tokutou.id)
+  Fare.create!(price:4870,type_section: :adult,ship_class_id: ittou_isu.id)
+  Fare.create!(price:4870,type_section: :adult,ship_class_id: ittou_juutan.id)
+  Fare.create!(price:2810,type_section: :adult,ship_class_id: nitou.id)
+  Fare.create!(price:3580,type_section: :child,ship_class_id: tokutou.id)
+  Fare.create!(price:2440,type_section: :child,ship_class_id: ittou_isu.id)
+  Fare.create!(price:2440,type_section: :child,ship_class_id: ittou_juutan.id)
+  Fare.create!(price:1410,type_section: :child,ship_class_id: nitou.id)
 
-  Fare.create!(price:6900,humen_section: :adult,ship_class_id: jetfoil.id)
-  Fare.create!(price:3460,humen_section: :child,ship_class_id: jetfoil.id)
+  Fare.create!(price:6900,type_section: :adult,ship_class_id: jetfoil.id)
+  Fare.create!(price:3460,type_section: :child,ship_class_id: jetfoil.id)
 
-  Fare.create!(price:520,humen_section: :pet,ship_class_id: '')
-  Fare.create!(price:520,humen_section: :hand_luggage,ship_class_id: '')
+  Fare.create!(price:520,type_section: :pet,ship_class_id: '')
+  Fare.create!(price:520,type_section: :hand_luggage,ship_class_id: '')
 
 end
 

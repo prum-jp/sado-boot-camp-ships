@@ -1,3 +1,3 @@
 class Fare < ApplicationRecord
-  enum humen_section: { adult: 0, child: 1 }
+  enum type_section: { adult: 0, child: 1,pet: 2,hand_luggage: 3}
 end
