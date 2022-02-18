@@ -4,6 +4,7 @@
 # It gets overwritten when you run the `spring binstub` command.
 
 if !defined?(Spring) && [nil, "development", "test"].include?(ENV["RAILS_ENV"])
+  
   require "bundler"
 
   Bundler.locked_gems.specs.find { |spec| spec.name == "spring" }&.tap do |spring|
