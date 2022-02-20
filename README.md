@@ -46,5 +46,5 @@ docker-compose up -d
 http://localhost
 ```
 
- メールアドレス：pg@example.com
- パスワード：pg-password
+ - メールアドレス：pg@example.com
+ - パスワード：pg-password
