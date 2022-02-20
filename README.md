@@ -29,7 +29,22 @@ docker-compose build
 docker-compose run web rails db:create
 ```
 
+ - 静的リソースのビルド
+```
+docker-compose run web rails assets:precompile
+```
+
  - Docker環境を立ち上げる
 ```
 docker-compose up -d
 ```
+
+## pgadminへのログイン
+### DBの中身を確認するために利用
+ - URLへアクセス
+```
+http://localhost
+```
+
+ メールアドレス：pg@example.com
+ パスワード：pg-password
