@@ -80,17 +80,20 @@
               </div>
               <div id="divLoginInputArea" class="InputTableFrame">
                 <div id="divLoginMainArea">
-                  <div id="divLoginError">
-                    <div class="WarningMsg" id="ctl00_WebContentPlaceHolder_lblMsg">
-                    <% if alert.present? %>
-                      <% alert.each do |message| %>
-                        <%=  message[1] %>
+                <div id="divLoginError">
+                  <div class="WarningMsg"id="ctl00_WebContentPlaceHolder_lblMsg">
+                      <% if alert.present? %>
+                        <% if (alert.is_a? String) %>
+                            <%= alert %>
+                        <% else %>
+                        <% alert.each_value do |v| %>
+                          <%= v %>
+                          <br>
+                        <% end %>
                       <% end %>
                     <% end %>
-
-                      <% alert %>
-                    </div>
                   </div>
+               </div>
                   <div id="divKaiinBangoArea">
                     <div class="ColumnTitle">
                       <%= f.label :会員番号,id: "ctl00_WebContentPlaceHolder_txtKaiinBango" %><br />
@@ -109,6 +112,9 @@
                   </div>
                   <div id="divLoginButtonFrame">
                     <%= f.submit "ログイン",type: "submit",id: "ctl00_WebContentPlaceHolder_btnLogin",class: "ButtonBlue ButtonMainText",value: "ログイン" %>
+                  </div>
+                  <div id="divLinkKaiinPassword" class="fontHiragino KaiinPasswordLink">
+                    <%= link_to "新規会員登録", new_user_registration_path %>
                   </div>
                   <div id="divLinkKaiinPassword" class="fontHiragino KaiinPasswordLink">
                     <%= link_to "会員番号・パスワードをお忘れですか？", new_password_path(resource_name) %><br /> </div>

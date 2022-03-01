@@ -15,6 +15,34 @@ ActiveRecord::Schema.define(version: 2022_02_24_030053) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "cars", force: :cascade do |t|
+    t.integer "car_model"
+    t.integer "car_displacement"
+    t.string "car_registered_place"
+    t.string "car_model_number"
+    t.string "car_kana"
+    t.string "car_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "family_name", null: false
+    t.string "first_name_kana", null: false
+    t.string "family_name_kana", null: false
+    t.date "birthday", null: false
+    t.integer "gender", null: false
+    t.string "telephone_number"
+    t.string "landline_number"
+    t.string "post_code", null: false
+    t.integer "municipalities", null: false
+    t.string "address", null: false
+    t.string "email", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
