@@ -9,10 +9,13 @@ ja:
     failure:
       already_authenticated: 'すでにログインしています。'
       inactive: 'アカウントが有効化されていません。メールに記載された手順にしたがって、アカウントを有効化してください。'
-      invalid: "%{authentication_keys} もしくはパスワードが不正です。"
+      # invalid: "会員番号は必須入力項目です。"
+      invalid:
+          name: "会員番号は必須入力項目です。"
+          password: "パスワードは必須入力項目です。"
       locked: 'あなたのアカウントは凍結されています。'
       last_attempt: 'あなたのアカウントが凍結される前に、複数回の操作がおこなわれています。'
-      not_found_in_database: "%{authentication_keys} もしくはパスワードが不正です。"
+      not_found_in_database: "入力情報に誤りがあるか、登録されていません。"
       timeout: 'セッションがタイムアウトしました。もう一度ログインしてください。'
       unauthenticated: 'アカウント登録もしくはログインしてください。'
       unconfirmed: 'メールアドレスの本人確認が必要です。'
