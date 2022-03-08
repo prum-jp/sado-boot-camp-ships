@@ -21,3 +21,15 @@ services:
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: password
+
+  pgadmin:
+    image: dpage/pgadmin4
+    volumes:
+      - "./pgadmin:/var/lib/pgadmin"
+      # - ./pgadmin:/var/lib/pgadmin/storage
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+        PGADMIN_DEFAULT_EMAIL: "pg@example.com"
+        PGADMIN_DEFAULT_PASSWORD: "pg-password"

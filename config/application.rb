@@ -19,4 +19,14 @@ module App
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
   end
+  module Example
+    class Application < Rails::Application
+      # ~~~~~~~~~~
+      #  I18n.config.available_locales = :ja # 使用できる言語を文字列もしくは配列で指定する
+      #  I18n.config.default_locale = :ja
+
+      config.i18n.default_locale = :ja
+      config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
+    end
+  end
 end
