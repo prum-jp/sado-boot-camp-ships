@@ -17,7 +17,7 @@ services:
   db:
     image: postgres:13
     volumes:
-      - ./data:/var/lib/postgresql/data
+      - sado_db:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: password
@@ -33,3 +33,7 @@ services:
     environment:
         PGADMIN_DEFAULT_EMAIL: "pg@example.com"
         PGADMIN_DEFAULT_PASSWORD: "pg-password"
+
+volumes:
+  sado_db:
+    external: true
