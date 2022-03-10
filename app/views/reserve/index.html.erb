@@ -1,7 +1,871 @@
-<html>
-    <head>
-    </head>
-    <body>
-        <input type="date" name = "date">
-    </body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="ctl00_ctl00_head"><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta http-equiv="Content-Language" content="ja" /><meta http-equiv="Content-Style-Type" content="text/css" /><meta http-equiv="Content-Script-Type" content="text/javascript" /><link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../image/favicon.ico" /><link rel="icon" type="image/vnd.microsoft.icon" href="../image/favicon.ico" /><!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5J5QL3');</script>
+<!-- End Google Tag Manager -->
+<link rel="stylesheet" href="../css/wj/wjg0000.css" type="text/css" /><link rel="stylesheet" href="../css/controls/josenYoyakuProgress.css" type="text/css" />
+    <script type="text/javascript" src="../js/jquery/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="../js/commonWJ.js?ver=20170703"></script>
+    <title>
+	インターネット予約：予約入力 ～佐渡汽船～
+</title>
+    <link rel="stylesheet" href="../css/wj/yoyakuInputOfukubasePage.css" type="text/css" />
+    <script type="text/javascript" src="../js/wj/WJG0030Ofuku.js"></script>
+        <script type="text/javascript">
+            function pageLoad(sender, args) {
+                if (typeof pageLoad_sub === 'function') {
+                    pageLoad_sub(sender, args);
+                }
+            }
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(function(){
+        history.pushState(null, null, null);
+        $(window).on("popstate", function(){
+            history.pushState(null, null, null);
+        });
+    });
+    </script>
+<link type="text/css" href="../css/jquery/jquery.ui.all.css" rel="stylesheet" />
+<script type="text/javascript" src="../js/jquery/ui/i18n/jquery.ui.datepicker-ja.js"></script>
+<script type="text/javascript" src="../js/jquery/ui/i18n/jquery.ui.datepicker-en.js"></script>
+<script type="text/javascript" src="../js/jquery/ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../js/wj/WJG0030Ofuku.js"></script>
+</head>
+<body id="ctl00_ctl00_JosenYoyaku" class="JosenYoyaku">
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5J5QL3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    
+    <form name="aspnetForm" method="post" action="./WJG0030.aspx" id="aspnetForm" class="FontNotoSans">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUENTM4MQ8WAh4TVmFsaWRhdGVSZXF1ZXN0TW9kZQIBFgJmDw9kFgIeDlNlcnZpY2VNZXNzYWdlZRYCZg8PZBYGHglIZWFkZXJLYm5lHgdNZW51TWVpBRXkuojntITmg4XloLHjga7lhaXlipseC0hlYWRlclRpdGxlBQzkuojntITlhaXlipsWBAIBD2QWAgIGDxYCHgRUZXh0BakDPCEtLSBHb29nbGUgVGFnIE1hbmFnZXIgLS0+DQo8c2NyaXB0PihmdW5jdGlvbih3LGQscyxsLGkpe3dbbF09d1tsXXx8W107d1tsXS5wdXNoKHsnZ3RtLnN0YXJ0JzoNCm5ldyBEYXRlKCkuZ2V0VGltZSgpLGV2ZW50OidndG0uanMnfSk7dmFyIGY9ZC5nZXRFbGVtZW50c0J5VGFnTmFtZShzKVswXSwNCmo9ZC5jcmVhdGVFbGVtZW50KHMpLGRsPWwhPSdkYXRhTGF5ZXInPycmbD0nK2w6Jyc7ai5hc3luYz10cnVlO2ouc3JjPQ0KJ2h0dHBzOi8vd3d3Lmdvb2dsZXRhZ21hbmFnZXIuY29tL2d0bS5qcz9pZD0nK2krZGw7Zi5wYXJlbnROb2RlLmluc2VydEJlZm9yZShqLGYpOw0KfSkod2luZG93LGRvY3VtZW50LCdzY3JpcHQnLCdkYXRhTGF5ZXInLCdHVE0tNUo1UUwzJyk7PC9zY3JpcHQ+DQo8IS0tIEVuZCBHb29nbGUgVGFnIE1hbmFnZXIgLS0+DQpkAgMPZBYGAgEPFgIfBQX2ATwhLS0gR29vZ2xlIFRhZyBNYW5hZ2VyIChub3NjcmlwdCkgLS0+DQo8bm9zY3JpcHQ+PGlmcmFtZSBzcmM9Imh0dHBzOi8vd3d3Lmdvb2dsZXRhZ21hbmFnZXIuY29tL25zLmh0bWw/aWQ9R1RNLTVKNVFMMyINCmhlaWdodD0iMCIgd2lkdGg9IjAiIHN0eWxlPSJkaXNwbGF5Om5vbmU7dmlzaWJpbGl0eTpoaWRkZW4iPjwvaWZyYW1lPjwvbm9zY3JpcHQ+DQo8IS0tIEVuZCBHb29nbGUgVGFnIE1hbmFnZXIgKG5vc2NyaXB0KSAtLT4NCmQCBQ9kFgwCAQ9kFgYCAQ8PFgIeC05hdmlnYXRlVXJsBRxodHRwczovL3d3dy5zYWRva2lzZW4uY28uanAvZGQCBQ8PFgIfBWRkZAIJDw8WAh4HVmlzaWJsZWhkFgJmD2QWAgIBD2QWAmYPEGRkFgBkAgMPZBYGAgEPDxYCHwdoZGQCAw8PFgIfB2hkZAIJDw8WAh8FBRXkuojntITmg4XloLHjga7lhaXliptkZAIFD2QWHAIHDw8WAh8FBQznlLPovrzljLrliIZkZAIJDw8WAh8FBQblv4XpoIhkZAILD2QWAmYPZBYEAgEPEA8WBB8FBRLniYfpgZPjga7jgb/kuojntIQeB0NoZWNrZWRnFgQeB29uY2xpY2sFcmlmKGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdjdGwwMF9jdGwwMF9XZWJDb250ZW50UGxhY2VIb2xkZXJfcmRvS2F0YW1pY2hpJykuY2hlY2tlZCl7Q2hhbmdlZE1vc2hpa29taUtibihmYWxzZSk7fR4WT25TZWxlY3RlZEluZGV4Q2hhbmdlZGRkZGQCAw8QDxYEHwUFD+W+gOW+qeOBruS6iOe0hB8IaBYEHwkFbWlmKGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdjdGwwMF9jdGwwMF9XZWJDb250ZW50UGxhY2VIb2xkZXJfcmRvT2Z1a3UnKS5jaGVja2VkKXtDaGFuZ2VkTW9zaGlrb21pS2JuKHRydWUpO30fCgUfcmRvTW91c2hpa29taUtibl9DaGVja2VkQ2hhbmdlZGRkZAIND2QWEGYPZBYEAgEPZBYCZg8PFgIfBQUT6KGM44GNLeW+gOi3r+aDheWgsWRkAgIPZBYCZg9kFgJmD2QWAgIBD2QWAgIBDw8WAh8FBRPluLDjgoot5b6p6Lev5oOF5aCxZGQCAQ9kFgZmD2QWBGYPDxYCHwUFEuOBlOS5l+iIueW5tOaciOaXpWRkAgEPDxYCHwUFBuW/hemgiGRkAgEPZBYCZg9kFgJmD2QWAmYPZBYCAgMPZBYCZg9kFgQCAQ8PFgIfBQUIMjAyMjAzMTEWAh4Ib25jaGFuZ2UFxgFkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnY3RsMDBfY3RsMDBfV2ViQ29udGVudFBsYWNlSG9sZGVyX2Nib09yb1phc2VraVRva3l1Q29kZScpLnN0eWxlLmRpc3BsYXk9J25vbmUnO2RvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdjdGwwMF9jdGwwMF9XZWJDb250ZW50UGxhY2VIb2xkZXJfY2JvT3JvQmluSWQnKS5zdHlsZS5kaXNwbGF5PSdub25lJztkAgMPDxYCHwUFCjIwMjIvMDMvMTFkZAICDw8WBB4JQmFja0NvbG9yCdPT0/8eBF8hU0ICCGQWAmYPZBYCZg9kFgJmD2QWAmYPZBYCZg9kFgICAQ8WAh4Fc3R5bGUFGGJhY2tncm91bmQtY29sb3I6I0YyRjJGMBYEAgEPZBYCAgEPZBYCAgEPFgIfB2hkAgMPFgIeBWNsYXNzBRZJbnB1dEhpenVrZVRleHREaXNhYmxlFgICAQ9kFgJmD2QWBAIBDw8WAh8FBQgyMDIyMDMxMRYCHwsFzAFkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnY3RsMDBfY3RsMDBfV2ViQ29udGVudFBsYWNlSG9sZGVyX2Nib0Z1a3Vyb1phc2VraVRva3l1Q29kZScpLnN0eWxlLmRpc3BsYXk9J25vbmUnO2RvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdjdGwwMF9jdGwwMF9XZWJDb250ZW50UGxhY2VIb2xkZXJfY2JvRnVrdXJvQmluSWQnKS5zdHlsZS5kaXNwbGF5PSdub25lJztkAgMPDxYCHwUFCjIwMjIvMDMvMTFkZAICD2QWBmYPZBYEZg8PFgIfBQUG55m65ZywZGQCAQ8PFgIfBQUG5b+F6aCIZGQCAQ9kFgJmD2QWAmYPZBYCAgEPEA8WBh4ORGF0YVZhbHVlRmllbGQFCk1pbmF0b0NvZGUeDURhdGFUZXh0RmllbGQFCU1pbmF0b01laR4LXyFEYXRhQm91bmRnFgIfCwXGAWRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdjdGwwMF9jdGwwMF9XZWJDb250ZW50UGxhY2VIb2xkZXJfY2JvT3JvWmFzZWtpVG9reXVDb2RlJykuc3R5bGUuZGlzcGxheT0nbm9uZSc7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2N0bDAwX2N0bDAwX1dlYkNvbnRlbnRQbGFjZUhvbGRlcl9jYm9Pcm9CaW5JZCcpLnN0eWxlLmRpc3BsYXk9J25vbmUnOxAVBQ/nmbrlnLDjgpLpgbjmip4G5paw5r2fBuS4oea0pQnnm7TmsZ/mtKUG5bCP5pyoFQUAAU4BUgJOQQFPFCsDBWdnZ2dnFgFmZAICDw8WBB8MCdPT0/8fDQIIZBYCZg9kFgJmD2QWAgIBDxAPFggfEAUKTWluYXRvQ29kZR8RBQlNaW5hdG9NZWkfEmceB0VuYWJsZWRoFgIfCwXMAWRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdjdGwwMF9jdGwwMF9XZWJDb250ZW50UGxhY2VIb2xkZXJfY2JvRnVrdXJvWmFzZWtpVG9reXVDb2RlJykuc3R5bGUuZGlzcGxheT0nbm9uZSc7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2N0bDAwX2N0bDAwX1dlYkNvbnRlbnRQbGFjZUhvbGRlcl9jYm9GdWt1cm9CaW5JZCcpLnN0eWxlLmRpc3BsYXk9J25vbmUnOxAVBQ/nmbrlnLDjgpLpgbjmip4G5paw5r2fBuS4oea0pQnnm7TmsZ/mtKUG5bCP5pyoFQUAAU4BUgJOQQFPFCsDBWdnZ2dnFgFmZAIDD2QWBmYPZBYEZg8PFgIfBQUJ6Ii55Yy65YiGZGQCAQ8PFgIfBQUG5b+F6aCIZGQCAQ9kFgQCAQ9kFgJmD2QWAgIBD2QWAgIBDxBkEBUBDOiIueOCkumBuOaKnhUBABQrAwFnFgFmZAIDD2QWAmYPZBYCZg9kFgJmD2QWAmYPZBYCAgEPDxYGHgdUb29sVGlwBRLkuojntITnirbms4HnhafkvJofBQUS5LqI57SE54q25rOB54Wn5LyaHxNoZGQCAg8PFgQfDAnT09P/Hw0CCGQWBAIBD2QWAmYPZBYCAgEPZBYCAgEPEA8WAh8TaGQQFQEM6Ii544KS6YG45oqeFQEAFCsDAWcWAWZkAgMPZBYCZg9kFgJmD2QWAmYPZBYCZg9kFgICAQ8PFgYfFAUS5LqI57SE54q25rOB54Wn5LyaHwUFEuS6iOe0hOeKtuazgeeFp+S8mh8TaGRkAgQPZBYGZg9kFgRmDw8WAh8FBQzkuZfoiLnmmYLplpNkZAIBDw8WAh8FBQblv4XpoIhkZAIBD2QWAgIDD2QWAmYPZBYCAgEPEA8WBh8QBQVCaW5JZB8RBQlCaW5KaWtva3UfEmdkEBUBFeS5l+iIueaZgumWk+OCkumBuOaKnhUBABQrAwFnFgFmZAICDw8WBB8MCdPT0/8fDQIIZBYCAgMPZBYCZg9kFgICAQ8QDxYIHxAFBUJpbklkHxEFCUJpbkppa29rdR8SZx8TaGQQFQEV5LmX6Ii55pmC6ZaT44KS6YG45oqeFQEAFCsDAWcWAWZkAgUPZBYGZg9kFgRmDw8WAh8FBQbnrYnntJpkZAIBDw8WAh8FBQblv4XpoIhkZAIBD2QWAgIDD2QWAmYPZBYCAgEPEA8WBh8QBQ9aYXNla2lUb2t5dUNvZGUfEQUOWmFzZWtpVG9reXVNZWkfEmdkEBUBD+etiee0muOCkumBuOaKnhUBABQrAwFnZGQCAg8PFgQfDAnT09P/Hw0CCGQWAgIDD2QWAmYPZBYCAgEPEA8WCB8QBQ9aYXNla2lUb2t5dUNvZGUfEQUOWmFzZWtpVG9reXVNZWkfEmcfE2hkEBUBD+etiee0muOCkumBuOaKnhUBABQrAwFnFgFmZAIGD2QWBmYPZBYQAgEPDxYCHwUFBuS6uuaVsGRkAgIPDxYCHwUFBuW/hemgiGRkAgYPFgIfBQU15LmX6Ii55Lq65ZOh44KS5YWl5Yqb44GX44Gm5LiL44GV44GE44CCKOWNiuinkuaVsOWtlylkAggPFgIfBQVU6LuK5Lih44KS44GU5Yip55So44Gu5aC05ZCI44Gv6YGL6Lui5omL44KS5ZCr44KB44Gf5Lq65pWw44KS5YWl5Yqb44GX44Gm5LiL44GV44GE44CCZAIKDxYCHwUFzgHlubzlhZAo77yR5q2z5Lul5LiK77yW5q2z5pyq5rqA44Gu5pyq5bCx5a2m5YWQKeOAgeS5s+WFkCgx5q2z5pyq5rqAKeOBr+OAgeeEoeaWmeOBqOOBquOCiuOBvuOBmeOAguOBn+OBoOOBl+OAgeasoeOBruWgtOWQiOOBr+Wwj+WFkOmBi+izg+OCkumBqeeUqOOBhOOBn+OBl+OBvuOBmeOAgu+8iOWwj+WFkOOBqOOBl+OBpuWFpeWKm+OBl+OBpuS4i+OBleOBhO+8iWQCDA8WAh8FBW7lubzlhZDjgIHkubPlhZDjgYzluqfluK0o44Kr44O844OV44Kn44Oq44O877yR562J44CB44K444Kn44OD44OI44OV44Kp44Kk44OrKeOCku+8keS6uuOBp+S9v+eUqOOBmeOCi+WgtOWQiOOAgmQCDg8WAh8FBeUB44Kr44O844OV44Kn44Oq44O877yS562J5Yip55So44Gn44CB5aSn5Lq677yR5ZCN44Gr5ZCM5Ly044GV44KM44Gm44GE44KL77yT5Lq655uu44GL44KJ44Gu5bm85YWQ44CC44Kr44O844OV44Kn44Oq44O877yR562J5Lul5LiK44CB44K444Kn44OD44OI44OV44Kp44Kk44Or5Yip55So44Gn44CB5aSn5Lq677yR5ZCN44Gr5ZCM5Ly044GV44KM44Gm44GE44KLMuS6uuebruOBi+OCieOBruW5vOWFkOOAgmQCEA8WAh8FBTblpKfkurrjgYzlkIzkvLTjgZfjgarjgYTlubzlhZDjgYzkuZfoiLnjgZnjgovloLTlkIjjgIJkAgEPZBYCZg9kFgJmD2QWAgIBD2QWCmYPZBYEZg9kFgJmDw8WAh8FBQblpKfkurpkZAIBD2QWBGYPD2QWAh4Kb25rZXlwcmVzcwWuAWlmKGV2ZW50LmtleUNvZGU9PTEzKXtXZWJGb3JtX0RvUG9zdEJhY2tXaXRoT3B0aW9ucyhuZXcgV2ViRm9ybV9Qb3N0QmFja09wdGlvbnMoJ2N0bDAwJGN0bDAwJFdlYkNvbnRlbnRQbGFjZUhvbGRlciRidG5LYWt1bmluJywgJycsIHRydWUsICcnLCAnJywgZmFsc2UsIHRydWUpKTtyZXR1cm4gZmFsc2U7fWQCAQ8PFgIfBQUEIOWQjWRkAgMPZBYEZg9kFgJmDw8WAh8FBQblsI/lhZBkZAIBD2QWBGYPD2QWAh8VBa4BaWYoZXZlbnQua2V5Q29kZT09MTMpe1dlYkZvcm1fRG9Qb3N0QmFja1dpdGhPcHRpb25zKG5ldyBXZWJGb3JtX1Bvc3RCYWNrT3B0aW9ucygnY3RsMDAkY3RsMDAkV2ViQ29udGVudFBsYWNlSG9sZGVyJGJ0bktha3VuaW4nLCAnJywgdHJ1ZSwgJycsICcnLCBmYWxzZSwgdHJ1ZSkpO3JldHVybiBmYWxzZTt9ZAIBDw8WAh8FBQQg5ZCNZGQCBg9kFgRmD2QWAmYPDxYCHwUFBuW5vOWFkGRkAgEPZBYEZg8PZBYCHxUFKGlmKGV2ZW50LmtleUNvZGU9PTEzKXsgICAgcmV0dXJuIGZhbHNlO31kAgEPDxYCHwUFBCDlkI1kZAIJD2QWBGYPZBYCZg8PFgIfBQUG5Lmz5YWQZGQCAQ9kFgRmDw9kFgIfFQUoaWYoZXZlbnQua2V5Q29kZT09MTMpeyAgICByZXR1cm4gZmFsc2U7fWQCAQ8PFgIfBQUEIOWQjWRkAgwPZBYEZg9kFgJmDw8WAh8FBQnjg5rjg4Pjg4hkZAIBD2QWBGYPD2QWAh8VBShpZihldmVudC5rZXlDb2RlPT0xMyl7ICAgIHJldHVybiBmYWxzZTt9ZAIBDw8WAh8FBQQg5Yy5ZGQCAg8PFgYfDAnT09P/HxNoHw0CCGQWAmYPZBYCZg9kFgICAQ9kFgpmD2QWBGYPZBYCZg8PFgIfBQUG5aSn5Lq6ZGQCAQ9kFgRmDw8WAh8FZRYCHxUFrgFpZihldmVudC5rZXlDb2RlPT0xMyl7V2ViRm9ybV9Eb1Bvc3RCYWNrV2l0aE9wdGlvbnMobmV3IFdlYkZvcm1fUG9zdEJhY2tPcHRpb25zKCdjdGwwMCRjdGwwMCRXZWJDb250ZW50UGxhY2VIb2xkZXIkYnRuS2FrdW5pbicsICcnLCB0cnVlLCAnJywgJycsIGZhbHNlLCB0cnVlKSk7cmV0dXJuIGZhbHNlO31kAgEPDxYCHwUFBCDlkI1kZAIDD2QWBGYPZBYCZg8PFgIfBQUG5bCP5YWQZGQCAQ9kFgRmDw8WAh8FZRYCHxUFrgFpZihldmVudC5rZXlDb2RlPT0xMyl7V2ViRm9ybV9Eb1Bvc3RCYWNrV2l0aE9wdGlvbnMobmV3IFdlYkZvcm1fUG9zdEJhY2tPcHRpb25zKCdjdGwwMCRjdGwwMCRXZWJDb250ZW50UGxhY2VIb2xkZXIkYnRuS2FrdW5pbicsICcnLCB0cnVlLCAnJywgJycsIGZhbHNlLCB0cnVlKSk7cmV0dXJuIGZhbHNlO31kAgEPDxYCHwUFBCDlkI1kZAIGD2QWBGYPZBYCZg8PFgIfBQUG5bm85YWQZGQCAQ9kFgRmDw8WAh8FZRYCHxUFKGlmKGV2ZW50LmtleUNvZGU9PTEzKXsgICAgcmV0dXJuIGZhbHNlO31kAgEPDxYCHwUFBCDlkI1kZAIJD2QWBGYPZBYCZg8PFgIfBQUG5Lmz5YWQZGQCAQ9kFgRmDw8WAh8FZRYCHxUFKGlmKGV2ZW50LmtleUNvZGU9PTEzKXsgICAgcmV0dXJuIGZhbHNlO31kAgEPDxYCHwUFBCDlkI1kZAIMD2QWBGYPZBYCZg8PFgIfBQUJ44Oa44OD44OIZGQCAQ9kFgRmDw8WAh8FZRYCHxUFKGlmKGV2ZW50LmtleUNvZGU9PTEzKXsgICAgcmV0dXJuIGZhbHNlO31kAgEPDxYCHwUFBCDljLlkZAIHD2QWBGYPZBYQZg8PFgIfBQUM6LuK5Lih5oOF5aCxZGQCAg8PFgIfBQUG5Lu75oSPZGQCBA9kFgICAw8PFgIfBQUG5b+F6aCIZGQCBw8WAh8FBbwB44GK6LuK44G+44Gf44Gv5LqM6Lyq44KS44GU5Yip55So44Gu5aC05ZCI44Gv44CM6LuK56iu44CN44CM6LuK6ZW3KOaOkuawl+mHjynjgI3jgpLpgbjmip7jgZfjgIzou4rkuKHnlarlj7fjgI3jgpLlhaXlipvjgZfjgabkuIvjgZXjgYTjgILjgYrou4rjga7plbfjgZXjga/ou4rmpJzoqLzjgafjgZTnorroqo3kuIvjgZXjgYTjgIJkAgkPFgIfBQVX4oC76KSH5pWw5Y+w6LuK5Lih44KS5LqI57SE44GV44KM44KL5pa544Gv77yR5Y+w44Ga44Gk5LqI57SE44KS44GK5Y+W44KK44GP44Gg44GV44GE44CCZAIKDxYCHwUFVDxiciAvPuKAu+OBkeOCk+W8lei7iuS4oeOAgeODiOODqeODg+OCr+OBr+OBiumbu+ipseOBq+OBpuOBiueUs+i+vOOBv+OBj+OBoOOBleOBhOOAgmQCDA8WAh8FBT/igLvvvJnvvY3ku6XkuIrjga7jg5Djgrnjga/jgYrpm7voqbHjgafjgZTkuojntITmib/jgorjgb7jgZnjgIJkAg4PFgIfBWVkAgEPZBYGZg9kFghmD2QWAmYPZBYEAgEPZBYCZg9kFgICAQ8PFgYfFAUk44GU55m76Yyy5YaF5a6544GL44KJ6LuK5Lih44KS6YG45oqeHwUFJOOBlOeZu+mMsuWGheWuueOBi+OCiei7iuS4oeOCkumBuOaKnh8HaBYCHwkFEHJlYWR5c3RhdGU9dHJ1ZTtkAgMPZBYCZg9kFgICAQ8PFgQfFAUV6LuK5Lih5YWl5Yqb44Kv44Oq44KiHwUFFei7iuS4oeWFpeWKm+OCr+ODquOCohYCHwkFEHJlYWR5c3RhdGU9dHJ1ZTtkAgIPZBYCZg9kFgJmD2QWAmYPZBYCAgEPEA8WBh8QBQpTaGFzaHVDb2RlHxEFCVNoYXNodU1laR8SZxYCHwsFaGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdjdGwwMF9jdGwwMF9XZWJDb250ZW50UGxhY2VIb2xkZXJfY2JvU2hhc2h1SGFpa2lyeW9Db2RlJykuc3R5bGUuZGlzcGxheT0nbm9uZSc7EBUGD+i7iueoruOCkumBuOaKngnkuZfnlKjou4oJ44Ov44K044OzDOi7veS5l+eUqOi7igbjg5DjgrkG5LqM6LyqFQYAAUcBVwFLAUIBThQrAwZnZ2dnZ2cWAWZkAgMPZBYCZg9kFgQCAQ9kFgJmD2QWBAIBDw8WAh8FBRHou4rplbco5o6S5rCX6YePKWRkAgMPDxYCHwUFBui7iumVt2RkAgQPZBYCZg9kFgICAQ9kFggCAQ8PFgQfBWUfB2gWBB8VBShpZihldmVudC5rZXlDb2RlPT0xMyl7ICAgIHJldHVybiBmYWxzZTt9HghvbkNoYW5nZQUOc2hhY2hvQ2hhbmdlKClkAgMPDxYEHwUFJGNtJm5ic3A7Jm5ic3A7Jm5ic3A76ZW344GV5Yy65YiG77yaIB8HaGRkAgUPZBYCAgEPDxYGHwVlHgVXaWR0aBsAAAAAAAAAAAEAAAAfDQKAAmRkAgcPFgIfDgUJZGlzcGxheTo7FgICAQ8QDxYMHgtCb3JkZXJDb2xvcgweCFRhYkluZGV4AQAAHxAFClNoYWNob0NvZGUfEQUJU2hhY2hvTWVpHxJnHw0CEGQQFQEa6LuK6ZW3KOaOkuawl+mHjynjgpLpgbjmip4VAQAUKwMBZ2RkAgUPZBYCZg9kFgJmD2QWAmYPZBYCAgEPZBYCAgIPZBYIZg9kFgJmDw9kFgIfFQUoaWYoZXZlbnQua2V5Q29kZT09MTMpeyAgICByZXR1cm4gZmFsc2U7fWQCAQ9kFgJmDw9kFgIfFQUoaWYoZXZlbnQua2V5Q29kZT09MTMpeyAgICByZXR1cm4gZmFsc2U7fWQCAg9kFgJmDw9kFgIfFQUoaWYoZXZlbnQua2V5Q29kZT09MTMpeyAgICByZXR1cm4gZmFsc2U7fWQCAw9kFgJmDw9kFgIfFQUoaWYoZXZlbnQua2V5Q29kZT09MTMpeyAgICByZXR1cm4gZmFsc2U7fWQCAg8WAh8FZWQCAw8WAh8FBVQ8YnIgLz7igLvjgZHjgpPlvJXou4rkuKHjgIHjg4jjg6njg4Pjgq/jga/jgYrpm7voqbHjgavjgabjgYrnlLPovrzjgb/jgY/jgaDjgZXjgYTjgIJkAg8PZBYCZg9kFgQCAQ8WAh4IZGlzYWJsZWRkZAIDD2QWAgIHD2QWAgIDD2QWAgICD2QWAgIBD2QWAgIBDxAPFgIfCGhkZGRkAhEPZBYCZg9kFgQCAQ8WAh8aZGQCAw8WBB8PBRxPdG9rdVJlZEZyYW1lIEJhY2tjb2xvcldoaXRlHwdoFgICCQ9kFgICAw9kFgICAg9kFgICAQ9kFgICAQ8QDxYCHwhoZGRkZAITD2QWAmYPZBYEAgEPFgIfGmRkAgMPFgQfDwUZT3Rva3VGcmFtZSBCYWNrY29sb3JXaGl0ZR8HaBYCAgcPZBYCAgMPZBYCAgIPZBYCAgEPZBYCAgEPEA8WAh8IaGRkZGQCFQ9kFgJmD2QWAgIBDxYCHwdoZAIXD2QWAmYPZBYEAgEPFgIfGmRkAgMPDxYGHghDc3NDbGFzcwUKT3Rva3VGcmFtZR8NAgIfB2hkFgJmD2QWAmYPZBYCAgsPZBYCAgMPZBYCAgMPZBYCAgEPZBYEAgEPEA8WAh8IaGRkZGQCBw8PFgIfBWVkZAIYD2QWAmYPZBYEAgEPFgIfGmRkAgMPDxYGHxsFCk90b2t1RnJhbWUfDQICHwdoZBYCZg9kFgJmD2QWAgILD2QWAgIDD2QWAgIDD2QWAgIBD2QWBAIBDxAPFgIfCGhkZGRkAgcPDxYCHwVlZGQCGg8PFgIfBQVg5YaF5a6544KS56K66KqN6aCC44GN44KI44KN44GX44GR44KM44Gw44CM44GK5a6i5qeY5oOF5aCx44Gu5YWl5Yqb44CN44KS6YG45oqe44GX44Gm5LiL44GV44GE44CCZGQCHA8PFgIfB2hkZAIeDw8WBh8FBRjjgYrlrqLmp5jmg4XloLHjga7lhaXlipsfFAUY44GK5a6i5qeY5oOF5aCx44Gu5YWl5YqbHwdnZGQCIA8PFgYfFAUM5LqI57SE5Lit5q2iHwUFDOS6iOe0hOS4reatoh4NT25DbGllbnRDbGljawVzaWYoY29uZmlybSgn5LqI57SE44KS5Lit5q2i44GX44G+44GZ44CC44KI44KN44GX44GE44Gn44GZ44GL77yfJykpe3JldHVybiB0cnVlO31lbHNle3JlYWR5c3RhdGU9dHJ1ZTtyZXR1cm4gZmFsc2V9O2RkAgcPDxYCHwUFhgHjgqTjg7Pjgr/jg7zjg43jg4Pjg4jkuojntITjgavplqLjgZnjgovjgYrllY/jgYTlkIjjgo/jgZvlhYjvvJrkvZDmuKHmsb3oiLnkuojntITjgrvjg7Pjgr/jg7wmbmJzcDsmbmJzcDtURUw6MDI1LTI0NS02MTIyKDA4OjMwLTE4OjAwKWRkAgkPFgIfBQUGJm5ic3A7ZAILDw8WAh8FBTpDb3B5cmlnaHQgKEMpIFNhZG8gU3RlYW0gU2hpcCBDTy4sTFRELkFsbCBSaWdodHMgUmVzZXJ2ZWQuZGQCBw8WAh8FBcIGPHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiPihmdW5jdGlvbihkLHUpe3ZhciBiPWQuZ2V0RWxlbWVudHNCeVRhZ05hbWUoInNjcmlwdCIpWzBdLGo9ZC5jcmVhdGVFbGVtZW50KCJzY3JpcHQiKTtqLmFzeW5jPXRydWU7ai5zcmM9dTtiLnBhcmVudE5vZGUuaW5zZXJ0QmVmb3JlKGosYik7fSkoZG9jdW1lbnQsIi8vaW1nLmFrLmltcGFjdC1hZC5qcC91dC9jYTlkZjQ3ZjQ2M2M0NzUzXzI1ODIuanMiKTs8L3NjcmlwdD48bm9zY3JpcHQ+PGlmcmFtZSBzcmM9Ii8vbnNwdC51bml0YWcuanAvY2E5ZGY0N2Y0NjNjNDc1M18yNTgyLnBocCIgd2lkdGg9IjAiIGhlaWdodD0iMCIgZnJhbWVib3JkZXI9IjAiPjwvaWZyYW1lPjwvbm9zY3JpcHQ+DQo8c2NyaXB0IHR5cGU9InRleHQvamF2YXNjcmlwdCI+DQogIChmdW5jdGlvbiAoKSB7DQogICAgdmFyIHRhZ2pzID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgic2NyaXB0Iik7DQogICAgdmFyIHMgPSBkb2N1bWVudC5nZXRFbGVtZW50c0J5VGFnTmFtZSgic2NyaXB0IilbMF07DQogICAgdGFnanMuYXN5bmMgPSB0cnVlOw0KICAgIHRhZ2pzLnNyYyA9ICIvL3MueWp0YWcuanAvdGFnLmpzI3NpdGU9Z2dQams0VSI7DQogICAgcy5wYXJlbnROb2RlLmluc2VydEJlZm9yZSh0YWdqcywgcyk7DQogIH0oKSk7DQo8L3NjcmlwdD4NCjxub3NjcmlwdD4NCiAgPGlmcmFtZSBzcmM9Ii8vYi55anRhZy5qcC9pZnJhbWU/Yz1nZ1BqazRVIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmcmFtZWJvcmRlcj0iMCIgc2Nyb2xsaW5nPSJubyIgbWFyZ2luaGVpZ2h0PSIwIiBtYXJnaW53aWR0aD0iMCI+PC9pZnJhbWU+DQo8L25vc2NyaXB0Pg0KZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WCgUuY3RsMDAkY3RsMDAkV2ViQ29udGVudFBsYWNlSG9sZGVyJHJkb0thdGFtaWNoaQUqY3RsMDAkY3RsMDAkV2ViQ29udGVudFBsYWNlSG9sZGVyJHJkb09mdWt1BSpjdGwwMCRjdGwwMCRXZWJDb250ZW50UGxhY2VIb2xkZXIkcmRvT2Z1a3UFLWN0bDAwJGN0bDAwJFdlYkNvbnRlbnRQbGFjZUhvbGRlciRDaGtSZW50YUNhcgU1Y3RsMDAkY3RsMDAkV2ViQ29udGVudFBsYWNlSG9sZGVyJGNoa1RvbWluU2hvc2FpSHlvamkFK2N0bDAwJGN0bDAwJFdlYkNvbnRlbnRQbGFjZUhvbGRlciRjaGtUb3VtaW4FNWN0bDAwJGN0bDAwJFdlYkNvbnRlbnRQbGFjZUhvbGRlciRjaGtQZWFjaFNob3NhaUh5b2ppBTdjdGwwMCRjdGwwMCRXZWJDb250ZW50UGxhY2VIb2xkZXIkY2hrU2FucGFrdVNob3NhaUh5b2ppBTxjdGwwMCRjdGwwMCRXZWJDb250ZW50UGxhY2VIb2xkZXIkY2hrT2tlc2FSYWt1dGVuU2hvc2FpSHlvamkFOmN0bDAwJGN0bDAwJFdlYkNvbnRlbnRQbGFjZUhvbGRlciRjaGtPa2VzYUphcmFuU2hvc2FpSHlvamlaOIZX8ENp1oPZwP1XX7bS4Kow5lFLau14KyxA5h13RA==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/webyoyaku/WebResource.axd?d=tzGRY5LqxaqJh3lBjWak3kDY_QcAxzlYgLSvvutlBIbbpAR-y_6jqWAnu5sTjzzlcpeWc9is-q-Zp4LgfLYa1EwUX1-R54BAHXNlxvrp1b01&amp;t=636777048783889403" type="text/javascript"></script>
+
+
+<script src="/webyoyaku/ScriptResource.axd?d=vG0PG_JwTvYE6LY45VDpVWuh0YvKHvjbsWnRJAGqG-ul4Lewwmc7PVINjXvHMEuet2e_xvHwURgyJsa1pnl8gFbzMqDGxyUFgHtUDutLfYBQio3Le1_XQX907f2S_eirSPbbR9RWkJIzlW64pbqK9PXe6YASNxlGS4nBPEDNOtVuOCTEYrwTeNHKbzRoqfkf0&amp;t=ffffffff999c3159" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax クライアント側フレームワークを読み込めませんでした。');
+//]]>
+</script>
+
+<script src="/webyoyaku/ScriptResource.axd?d=IY7bglxz1482gls7PvRe99iBpEC9sygLuKXFvssS9Wt7xCKv9KLgj81f6VNMKVEqHg3ygIVcQffKtUaSO8G69ME1vj8mIDt_tBV1SjLCsy_CInXJad-C4rwgqfNY6QrrC2fIXrySEZ0OTmMnqFB1Znnte_uWApIw0dviRtXQKpD8H1t9ko0udZBszsdNchwK0&amp;t=ffffffff999c3159" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="BAC592CF" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAESpFDUGi1tg3mORZBz4RCwUNUmX312TdBdRsAxM8n6h7NEsHPbkQcHXVQ52eSxHGarDqAnA9KMwkf0n5S0NEAY61jZLi5lo42STUu7MsQJaivtUlZ9eq0fyGKpcmThrUEXRMtpoW5YGzEPojVAQoGpJJMQ+r/1G3CA1JRHwB/SbrXGz3PdKck5gaVgZdOxDtuvV+Grec0V2W6Fthu3ydI7G+MmFqgWukQnWXRS2Md0yZ/VdZHfe/TK63Z0lflzU6M7axdZqVRb5L7Wy1usLYykZ2FmQ+uJ5tlqbKv4Q/9zGY1iXb5Zz6aIT16PqXDgyG6npashwdxYIUt+3kG+qFwriyosA4i1VM+gfW9Dtf9rLPAky87BmQTnQgULQSitoZkIf63EeXZWLDmBb646bYbFtVARZkHmO1r2dO1ICfhqKTwkTGmGB9F4LUQdVg4qVUzWXtMvYOrWmAolDakMhEECRKGyzhfJJ7OfzHVGM9Yo21dtfgbw7frfMbEGzwk033CgO4No1FFLVRo/28gYNkFikmjrOW9D5Fnc5TPKL8wDEGFXCCajB71Pw97PlkIGgXyWyZVcHL9OxMaYgHlHNNmpEsWYb6r7p3AB4sozpZfwBp4olK8WJNjZRhKFhsaTq3mtkSTceG77bMwx/PunfVbfQnz+JqnhBqkPGMy3R3hd00sF0MMwdNdOonCgUGXVS+Q7jno93qoe26KMXi96TSAnbg1yHtVIuF5rN7BZ8d+ZHWbms6U3qQezLKp0vy/dETpNTtInE1Y4wFqu7YkLSmyhpOs5KN5pRGwLxem+cY8/9cR052tueePAao0Xidj8+QmEi+/HiGNONvKmi4djJEZTUqLXZT4x9YdvhNa2Kk8Bdb7lgcpYg04UfkZ+ssaY7Wh2hsW4Ykj5iJDFKE8ptUMEZ2AWa4yuCaTuwrEhP+XzfQ1ZI/OoLkXlNbmk/KERTLI/8bqU3+gXEw+0BzPca2gF1LInJZxibLLJm0+xqngkk6IJ8ssoh5eOE4YaFb2HfIWTZ6FLCapEHcf622CYeG3wuco/Bfie7DGja3PHVlDFmz4H3iDv8+NJc/0/WiB3td4cZBRX+rAuBWlJpeGEec7KBY5MYnr8kGt2AvZ66qNb+btLXR/l7ADsWxaUuZYJa2dgqRnBfIwc+8E9Z3pQNkRQvHdqWZtWiFeeE3uTa4rscIhUbmerzW1xuAw2BZo2R2bA2XbjA2M+gRdCMECTtpJUmOaILDdJRgnJfT/4Vk/dqHzCS/fCfnSNV32DAEBuZ3ov4a1Z/MxRzwzt7XBezIaPcqp4+KJ3kAr6q/nt+ZSKw8KizSn6POkqx7+I9rxGXISdisbBupnczzptnw/n+4jmKC4lPL6/5uDBiwPfWEyGBdcEXT/22x/fPIl7lsTInqUyHTEkp0/DR2z9kNHEqTccgmZ7nbB8FvZkijYVxcTgHJ0g6No1OZJ2h7TnHQsxKktKhGTz0MDKt8DS/UGEGsT7M" />
+</div>
+
+        <div id="ctl00_ctl00_divPageTitleArea" class="PageTitleArea">
+            <div style="display:table;">
+                <div style="display:table-cell;">
+                    <div id="divSadoKisenIcon" class="SadoKisenIcon">
+                        <a id="ctl00_ctl00_lnkTop" href="https://www.sadokisen.co.jp/">
+                            <img alt="佐渡汽船Top" src="../image/logo.gif" title="佐渡汽船Top"/>
+                        </a>
+                    </div>
+
+                    <div id="divPageTitle" class="PageTitle">
+                        <span id="ctl00_ctl00_lblPageTitle">インターネット予約</span>
+                    </div>
+                </div>
+
+                <div id="divServiceMessage" class="ServiceMessage">
+                    <span id="ctl00_ctl00_lblServiceMessage" class="Warning"></span>
+                    <a href="#"><script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ctl00$ScriptManager1', 'aspnetForm', ['tctl00$ctl00$WebContentPlaceHolder$updPanelMoshikomiKbn','','tctl00$ctl00$WebContentPlaceHolder$UpdatePanel3','','tctl00$ctl00$WebContentPlaceHolder$updPnlOroJosenbi','','tctl00$ctl00$WebContentPlaceHolder$UpdatePanel1','','tctl00$ctl00$WebContentPlaceHolder$updPnlFukuroJosenbi','','tctl00$ctl00$WebContentPlaceHolder$updPanelOroHatchiCode','','tctl00$ctl00$WebContentPlaceHolder$updPanelFukuroHatchiCode','','tctl00$ctl00$WebContentPlaceHolder$updPanelOroFuneKbn','','tctl00$ctl00$WebContentPlaceHolder$updPanelbtnOroYoyakuShokai','','tctl00$ctl00$WebContentPlaceHolder$updPanelFukuroFuneKbn','','tctl00$ctl00$WebContentPlaceHolder$updPanelbtnFukuroYoyakuShokai','','tctl00$ctl00$WebContentPlaceHolder$updPanelOroBinId','','tctl00$ctl00$WebContentPlaceHolder$updPanelFukuroBinId','','tctl00$ctl00$WebContentPlaceHolder$updOroZasekiTokyuCode','','tctl00$ctl00$WebContentPlaceHolder$updFukuroZasekiTokyuCode','','tctl00$ctl00$WebContentPlaceHolder$UpdPanelOroNinzu','','tctl00$ctl00$WebContentPlaceHolder$UpdPanelFukuroNinzu','','tctl00$ctl00$WebContentPlaceHolder$updPanelbtnTorokuSharyo','','tctl00$ctl00$WebContentPlaceHolder$updPanelbtnSharyoClear','','tctl00$ctl00$WebContentPlaceHolder$updPanelShashuCode','','tctl00$ctl00$WebContentPlaceHolder$updShachoLabel','','tctl00$ctl00$WebContentPlaceHolder$updPanelShashuHaikiryoCode','','tctl00$ctl00$WebContentPlaceHolder$updPanelSharyoBango','','tctl00$ctl00$WebContentPlaceHolder$updPanelOtokuJoho','','tctl00$ctl00$WebContentPlaceHolder$updPanelTouminWaribikiBox','','tctl00$ctl00$WebContentPlaceHolder$updPanelPeachMD','','tctl00$ctl00$WebContentPlaceHolder$updPanelSanpakuWaribikiBox','','tctl00$ctl00$WebContentPlaceHolder$updPanelSenior','','tctl00$ctl00$WebContentPlaceHolder$updPanelRakuten','','tctl00$ctl00$WebContentPlaceHolder$updPanelJaran',''], [], [], 90, 'ctl00$ctl00');
+//]]>
+</script>
+</a>
+                </div>
+            </div>
+            <div id="divTitleAreaRight" class="TitleAreaRight">
+                <div id="divLanguageChange">    
+                    
+                </div>
+            </div>
+
+        </div>
+
+
+        <div id="ctl00_ctl00_divPageOverview" class="PageOverview">
+            <div id="divLoginUser" class="LoginUser">
+                
+                
+            </div>
+            
+            <div id="divHayatokuTitle" class="HayatokuTitle">
+                
+            </div>
+            
+            <div id="divProgresArea" class="ProgressFrame">
+                
+    <div id="ctl00_ctl00_ProgresPlaceHolder_YoyakuProgress1_divProgress" class="ProgressArea">
+    <table class="ProgressTable">
+	<tr>
+		<td>
+                <table class="ProgressTextTable">
+                    <tr>
+                        <td id="ctl00_ctl00_ProgresPlaceHolder_YoyakuProgress1_tdProgressText1" class="ProgressTextBlue">
+                            <span id="ctl00_ctl00_ProgresPlaceHolder_YoyakuProgress1_lblProgressText1">予約情報の入力</span>
+                        </td>
+		
+                        <td id="ctl00_ctl00_ProgresPlaceHolder_YoyakuProgress1_tdProgressText2" class="">
+                            <span id="ctl00_ctl00_ProgresPlaceHolder_YoyakuProgress1_lblProgressText2">予約内容の確認</span>
+                        </td>
+		
+                        <td id="ctl00_ctl00_ProgresPlaceHolder_YoyakuProgress1_tdProgressText3" class="">
+                            <span id="ctl00_ctl00_ProgresPlaceHolder_YoyakuProgress1_lblProgressText3">完了</span>
+                        </td>
+		
+                    </tr>
+                </table>
+            </td>
+	</tr>
+	<tr>
+		<td class="ProgressLineArea">
+                <table id="ctl00_ctl00_ProgresPlaceHolder_YoyakuProgress1_tblProgressLine" class="ProgressLineTable ProgressLevel1" border="0">
+			<tr>
+				<td class="ProgressMarkCell" align="center">
+                            <div id="ctl00_ctl00_ProgresPlaceHolder_YoyakuProgress1_divProgressMark1" class="ProgressMark ProgressMarkBlue">
+                            </div>
+                        </td>
+				<td class="ProgressLineMargin">
+                        </td>
+				<td class="ProgressMarkCell" align="center">
+                            <div id="ctl00_ctl00_ProgresPlaceHolder_YoyakuProgress1_divProgressMark2" class="ProgressMark ProgressMarkGray">
+                            </div>
+                        </td>
+				<td class="ProgressLineMargin">
+                        </td>
+				<td class="ProgressMarkCell" align="center">
+                            <div id="ctl00_ctl00_ProgresPlaceHolder_YoyakuProgress1_divProgressMark3" class="ProgressMark ProgressMarkGray">
+                            </div>
+                        </td>
+			</tr>
+		</table>
+		
+            </td>
+	</tr>
+</table>
+
+</div>
+
+
+            </div>
+
+            <div id="divMenuMei" class="MenuMei">
+                <span id="ctl00_ctl00_lblMenuMei">予約情報の入力</span>
+            </div>
+            
+        </div>
+
+
+        <div id="divMain" class="MainContentArea">
+            <div id="divWebContentPlaceHolder">
+                
+    <table class="ReserveMsg">
+        <tr>
+            <td class="Left">
+                <span id="ctl00_ctl00_WebContentPlaceHolder_lblMsg" class="WarningMsg"></span>
+                <span id="ctl00_ctl00_WebContentPlaceHolder_lblBlank"></span>
+            </td>
+        </tr>
+    </table>
+    <div id="divMoshikomiKbnArea" class="TitleArea" style="margin-top:74px">
+        <img id="ctl00_ctl00_WebContentPlaceHolder_imgMoshikomiKbn" class="TitleIcon" src="../image/icon-shipfront.png" style="border-width:0px;" />
+        <span id="ctl00_ctl00_WebContentPlaceHolder_lblMoshikomiKbn" class="TitleLabel MoshikomiKbn">申込区分</span>
+        <div>
+            <span id="ctl00_ctl00_WebContentPlaceHolder_lblHissuMoshikomiKbn" class="HissuIcon FontHiragino">必須</span>
+        </div>
+    </div>
+    <div id="divMoshikomiKbnRadioButton" style="margin-top:50px">
+        <div id="ctl00_ctl00_WebContentPlaceHolder_updPanelMoshikomiKbn">
+	
+                <div id="divRdoKatamichi" class="rdoMoshikomiKbn">
+                    <span class="moshikomiRadioButton" title="往復で予約すると往復割引が適用になる場合があります"><input id="ctl00_ctl00_WebContentPlaceHolder_rdoKatamichi" type="radio" name="ctl00$ctl00$WebContentPlaceHolder$MoshikomiKbn" value="rdoKatamichi" checked="checked" onclick="if(document.getElementById(&#39;ctl00_ctl00_WebContentPlaceHolder_rdoKatamichi&#39;).checked){ChangedMoshikomiKbn(false);};" /><label for="ctl00_ctl00_WebContentPlaceHolder_rdoKatamichi">片道のみ予約</label></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <div id="divRdoOfuku" class="rdoMoshikomiKbn">
+                    <span class="moshikomiRadioButton" OnSelectedIndexChanged="rdoMoushikomiKbn_CheckedChanged"><input id="ctl00_ctl00_WebContentPlaceHolder_rdoOfuku" type="radio" name="ctl00$ctl00$WebContentPlaceHolder$MoshikomiKbn" value="rdoOfuku" onclick="if(document.getElementById(&#39;ctl00_ctl00_WebContentPlaceHolder_rdoOfuku&#39;).checked){ChangedMoshikomiKbn(true);};setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$WebContentPlaceHolder$rdoOfuku\&#39;,\&#39;\&#39;)&#39;, 0)" /><label for="ctl00_ctl00_WebContentPlaceHolder_rdoOfuku">往復の予約</label></span>
+                </div>
+            
+</div>
+    </div>
+    <table id="ctl00_ctl00_WebContentPlaceHolder_TableYoyakuNyuryokuArea" class="TblReserve" cellspacing="0" border="0" style="border-collapse:collapse;">
+	<tr>
+		<td class="TdTitle" style="width:162px;"><span id="ctl00_ctl00_WebContentPlaceHolder_Label1"></span></td><td class="TdTitle" style="width:280px;background-color:#E2EAF5"><span id="ctl00_ctl00_WebContentPlaceHolder_lblOroTitle">行き-往路情報</span></td><td id="ctl00_ctl00_WebContentPlaceHolder_celFukuroTitle" class="TdTitle" style="width:280px;"><div id="ctl00_ctl00_WebContentPlaceHolder_UpdatePanel3">
+			
+                        <div id="ctl00_ctl00_WebContentPlaceHolder_divFukuroTitle" class="TdFukuroTitle">
+                            <span id="ctl00_ctl00_WebContentPlaceHolder_lblFukuroTitle">帰り-復路情報</span>
+                        </div>
+                    
+		</div></td>
+	</tr><tr>
+		<td class="TdRowTitle"><span id="ctl00_ctl00_WebContentPlaceHolder_lblJosenbi">ご乗船年月日</span><span id="ctl00_ctl00_WebContentPlaceHolder_lblHissuJosenbi" class="HissuIcon FontHiragino">必須</span></td><td id="ctl00_ctl00_WebContentPlaceHolder_celOroJosenbi" class="InputCell"><table id="ctl00_ctl00_WebContentPlaceHolder_TableOroJosenbiFrame" border="0">
+			<tr>
+				<td class="InputCell josenEnableFrame">
+                            <div id="divOroJosenbiBox">
+                                <div id="ctl00_ctl00_WebContentPlaceHolder_divOroHizukeIcon" class="InputHizukeIcon">
+                                    <input name="ctl00$ctl00$WebContentPlaceHolder$oroSelectedDatepicker" type="hidden" id="ctl00_ctl00_WebContentPlaceHolder_oroSelectedDatepicker" />
+                                    
+                                    <input type="hidden" name="ctl00$ctl00$WebContentPlaceHolder$hidMaxJosenbi" id="ctl00_ctl00_WebContentPlaceHolder_hidMaxJosenbi" value="2022/06/10" />
+                                    <input type="hidden" name="ctl00$ctl00$WebContentPlaceHolder$hidMinJosenbi" id="ctl00_ctl00_WebContentPlaceHolder_hidMinJosenbi" value="2022/03/11" />
+                                </div>
+                                <div id="divOroHizukeText" class="InputHizukeText">
+                                    <div id="ctl00_ctl00_WebContentPlaceHolder_updPnlOroJosenbi">
+					
+                                            <input name="ctl00$ctl00$WebContentPlaceHolder$txtOroHizukeValue" type="text" value="20220311" onchange="document.getElementById(&#39;ctl00_ctl00_WebContentPlaceHolder_cboOroZasekiTokyuCode&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;ctl00_ctl00_WebContentPlaceHolder_cboOroBinId&#39;).style.display=&#39;none&#39;;setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$WebContentPlaceHolder$txtOroHizukeValue\&#39;,\&#39;\&#39;)&#39;, 0)" onkeypress="if (WebForm_TextBoxKeyHandler(event) == false) return false;" id="ctl00_ctl00_WebContentPlaceHolder_txtOroHizukeValue" style="display: none;" />
+                                            <span id="ctl00_ctl00_WebContentPlaceHolder_lblOroHizukeText">2022/03/11</span>
+                                        
+				</div>
+                                </div>
+                            </div>
+                        </td>
+			</tr>
+		</table></td><td id="ctl00_ctl00_WebContentPlaceHolder_celFukuroJosenbi" class="InputCell" style="background-color:#D3D3D3;"><table id="ctl00_ctl00_WebContentPlaceHolder_TableFukuroJosenbiFrame" border="0">
+			<tr>
+				<td id="ctl00_ctl00_WebContentPlaceHolder_test"><div id="ctl00_ctl00_WebContentPlaceHolder_UpdatePanel1">
+					
+                                    <div id="ctl00_ctl00_WebContentPlaceHolder_celFukuroDatepicker" class="josenEnableFrame" style="background-color:#F2F2F0">
+                                        <div id="divFukuroJosenbiBox">
+                                            <div id="ctl00_ctl00_WebContentPlaceHolder_divFukuroHizukeIcon" class="InputHizukeIcon">
+                                                <div id="ctl00_ctl00_WebContentPlaceHolder_divFukuroHizukeIconBox">
+                                                    
+                                                    <img id="ctl00_ctl00_WebContentPlaceHolder_imgJosenInputFukuroDisableIcon" src="../image/calendar-alt_grey.png" style="border-width:0px;" />
+                                                    
+                                                    <input type="hidden" name="ctl00$ctl00$WebContentPlaceHolder$hidFukuroMaxJosenbi" id="ctl00_ctl00_WebContentPlaceHolder_hidFukuroMaxJosenbi" value="2022/06/19" />
+                                                </div>
+                                            </div>
+                                            <div id="ctl00_ctl00_WebContentPlaceHolder_divFukuroHizukeText" class="InputHizukeTextDisable">
+                                                <div id="ctl00_ctl00_WebContentPlaceHolder_updPnlFukuroJosenbi">
+						
+                                                        <input name="ctl00$ctl00$WebContentPlaceHolder$txtFukuroHizukeValue" type="text" value="20220311" onchange="document.getElementById(&#39;ctl00_ctl00_WebContentPlaceHolder_cboFukuroZasekiTokyuCode&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;ctl00_ctl00_WebContentPlaceHolder_cboFukuroBinId&#39;).style.display=&#39;none&#39;;setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$WebContentPlaceHolder$txtFukuroHizukeValue\&#39;,\&#39;\&#39;)&#39;, 0)" onkeypress="if (WebForm_TextBoxKeyHandler(event) == false) return false;" id="ctl00_ctl00_WebContentPlaceHolder_txtFukuroHizukeValue" style="display: none;" />
+                                                        <span id="ctl00_ctl00_WebContentPlaceHolder_lblFukuroHizukeText">2022/03/11</span>
+                                                    
+					</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+				</div></td>
+			</tr>
+		</table></td>
+	</tr><tr>
+		<td class="TdRowTitle"><span id="ctl00_ctl00_WebContentPlaceHolder_lblHatchiCode">発地</span><span id="ctl00_ctl00_WebContentPlaceHolder_lblHissuHatchiCode" class="HissuIcon FontHiragino">必須</span></td><td id="ctl00_ctl00_WebContentPlaceHolder_celOroHatchiCode" class="InputCell"><div id="ctl00_ctl00_WebContentPlaceHolder_updPanelOroHatchiCode">
+			
+                        <div id="divOroHachiCode" class="SelectWrap MediumDropDown">
+                            <select name="ctl00$ctl00$WebContentPlaceHolder$cboOroHatchiCode" onchange="document.getElementById(&#39;ctl00_ctl00_WebContentPlaceHolder_cboOroZasekiTokyuCode&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;ctl00_ctl00_WebContentPlaceHolder_cboOroBinId&#39;).style.display=&#39;none&#39;;setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$WebContentPlaceHolder$cboOroHatchiCode\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_ctl00_WebContentPlaceHolder_cboOroHatchiCode">
+				<option selected="selected" value="">発地を選択</option>
+				<option value="N">新潟</option>
+				<option value="R">両津</option>
+				<option value="NA">直江津</option>
+				<option value="O">小木</option>
+
+			</select>
+                        </div>
+                    
+		</div></td><td id="ctl00_ctl00_WebContentPlaceHolder_celFukuroHatchiCode" class="InputCell" style="background-color:#D3D3D3;"><div id="ctl00_ctl00_WebContentPlaceHolder_updPanelFukuroHatchiCode">
+			
+                        <div id="divFukuroHachiCode" class="SelectWrap MediumDropDown">
+                            <select name="ctl00$ctl00$WebContentPlaceHolder$cboFukuroHatchiCode" onchange="document.getElementById(&#39;ctl00_ctl00_WebContentPlaceHolder_cboFukuroZasekiTokyuCode&#39;).style.display=&#39;none&#39;;document.getElementById(&#39;ctl00_ctl00_WebContentPlaceHolder_cboFukuroBinId&#39;).style.display=&#39;none&#39;;setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$WebContentPlaceHolder$cboFukuroHatchiCode\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_ctl00_WebContentPlaceHolder_cboFukuroHatchiCode" disabled="disabled">
+				<option selected="selected" value="">発地を選択</option>
+				<option value="N">新潟</option>
+				<option value="R">両津</option>
+				<option value="NA">直江津</option>
+				<option value="O">小木</option>
+
+			</select>
+                        </div>
+                    
+		</div></td>
+	</tr><tr>
+		<td class="TdRowTitle"><span id="ctl00_ctl00_WebContentPlaceHolder_lblFuneKbn">船区分</span><span id="ctl00_ctl00_WebContentPlaceHolder_lblHissuFuneKbn" class="HissuIcon FontHiragino">必須</span></td><td id="ctl00_ctl00_WebContentPlaceHolder_celOroFuneKbn" class="InputCell">
+                <div id="divOroFuneKbnBox" style="display:inline-block">
+                    <div id="ctl00_ctl00_WebContentPlaceHolder_updPanelOroFuneKbn">
+			
+                            <div id="ctl00_ctl00_WebContentPlaceHolder_divOroFuneKbn" class="SelectWrap SmallDropDown">
+                                <select name="ctl00$ctl00$WebContentPlaceHolder$rdoOroFuneKbn" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$WebContentPlaceHolder$rdoOroFuneKbn\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_ctl00_WebContentPlaceHolder_rdoOroFuneKbn">
+				<option selected="selected" value="">船を選択</option>
+
+			</select>
+                            </div>
+                        
+		</div>
+                </div>
+                <div id="divOroYoyakuShokai" class="YoyakuShokaiArea">
+                    <table id="ctl00_ctl00_WebContentPlaceHolder_TableOroYoyakuShokai" border="0">
+			<tr>
+				<td><div id="ctl00_ctl00_WebContentPlaceHolder_updPanelbtnOroYoyakuShokai">
+					
+                                        <input type="submit" name="ctl00$ctl00$WebContentPlaceHolder$btnOroYoyakuShokai" value="予約状況照会" id="ctl00_ctl00_WebContentPlaceHolder_btnOroYoyakuShokai" disabled="disabled" title="予約状況照会" class="ButtonSkeletonBlue ButtonYoyakuShokai" />
+                                    
+				</div></td>
+			</tr>
+		</table>
+                </div>
+            </td><td id="ctl00_ctl00_WebContentPlaceHolder_celFukuroFuneKbn" class="InputCell" style="background-color:#D3D3D3;">
+                <div id="divFukuroFuneKbnBox" style="display: inline-block">
+                    <div id="ctl00_ctl00_WebContentPlaceHolder_updPanelFukuroFuneKbn">
+			
+                            <div id="ctl00_ctl00_WebContentPlaceHolder_divFukuroFuneKbn" class="SelectWrap SmallDropDown">
+                                <select name="ctl00$ctl00$WebContentPlaceHolder$rdoFukuroFuneKbn" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$WebContentPlaceHolder$rdoFukuroFuneKbn\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_ctl00_WebContentPlaceHolder_rdoFukuroFuneKbn" disabled="disabled">
+				<option selected="selected" value="">船を選択</option>
+
+			</select>
+                            </div>
+                        
+		</div>
+                </div>
+                <div id="divFukuroYoyakuShokai" class="YoyakuShokaiArea">
+                    <table id="ctl00_ctl00_WebContentPlaceHolder_TableFukuroYoyakuShokai" border="0">
+			<tr>
+				<td><div id="ctl00_ctl00_WebContentPlaceHolder_updPanelbtnFukuroYoyakuShokai">
+					
+                                        <input type="submit" name="ctl00$ctl00$WebContentPlaceHolder$btnFukuroYoyakuShokai" value="予約状況照会" id="ctl00_ctl00_WebContentPlaceHolder_btnFukuroYoyakuShokai" disabled="disabled" title="予約状況照会" class="ButtonSkeletonBlue ButtonYoyakuShokai" />
+                                    
+				</div></td>
+			</tr>
+		</table>
+                </div>
+            </td>
+	</tr><tr>
+		<td class="TdRowTitle"><span id="ctl00_ctl00_WebContentPlaceHolder_lblBinId">乗船時間</span><span id="ctl00_ctl00_WebContentPlaceHolder_lblHissuBinId" class="HissuIcon FontHiragino">必須</span></td><td id="ctl00_ctl00_WebContentPlaceHolder_celOroBinId" class="InputCell"><div id="ctl00_ctl00_WebContentPlaceHolder_updProgressOroJosenbiBinID" style="display:none;">
+			
+                        <img alt="loading..." src="../image/loader.gif" title="loading..." />
+                    
+		</div><div id="ctl00_ctl00_WebContentPlaceHolder_updProgressOroHatchiCodeBinID" style="display:none;">
+			
+                        <img alt="loading..." src="../image/loader.gif" title="loading..." />
+                    
+		</div><div id="ctl00_ctl00_WebContentPlaceHolder_updProgressOroFuneKbnBinID" style="display:none;">
+			
+                        <img alt="loading..." src="../image/loader.gif" title="loading..." />
+                    
+		</div><div id="ctl00_ctl00_WebContentPlaceHolder_updPanelOroBinId">
+			
+                        <div id="divOroBinId" class="SelectWrap MediumDropDown">
+                            <select name="ctl00$ctl00$WebContentPlaceHolder$cboOroBinId" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$WebContentPlaceHolder$cboOroBinId\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_ctl00_WebContentPlaceHolder_cboOroBinId">
+				<option selected="selected" value="">乗船時間を選択</option>
+
+			</select>
+                        </div>
+                    
+		</div></td><td id="ctl00_ctl00_WebContentPlaceHolder_celFukuroBinId" class="InputCell" style="background-color:#D3D3D3;"><div id="ctl00_ctl00_WebContentPlaceHolder_updProgressFukuroJosenbiBinID" style="display:none;">
+			
+                        <img alt="loading..." src="../image/loader.gif" title="loading..." />
+                    
+		</div><div id="ctl00_ctl00_WebContentPlaceHolder_updProgressFukuroHatchiCodeBinID" style="display:none;">
+			
+                        <img alt="loading..." src="../image/loader.gif" title="loading..." />
+                    
+		</div><div id="ctl00_ctl00_WebContentPlaceHolder_updProgressFukuroFuneKbnBinID" style="display:none;">
+			
+                        <img alt="loading..." src="../image/loader.gif" title="loading..." />
+                    
+		</div><div id="ctl00_ctl00_WebContentPlaceHolder_updPanelFukuroBinId">
+			
+                        <div id="divFukuroBinId" class="SelectWrap MediumDropDown">
+                            <select name="ctl00$ctl00$WebContentPlaceHolder$cboFukuroBinId" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$WebContentPlaceHolder$cboFukuroBinId\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_ctl00_WebContentPlaceHolder_cboFukuroBinId" disabled="disabled">
+				<option selected="selected" value="">乗船時間を選択</option>
+
+			</select>
+                        </div>
+                    
+		</div></td>
+	</tr><tr>
+		<td class="TdRowTitle"><span id="ctl00_ctl00_WebContentPlaceHolder_lblZasekiTokyuCode">等級</span><span id="ctl00_ctl00_WebContentPlaceHolder_lblHissuZasekiTokyuCode" class="HissuIcon FontHiragino">必須</span></td><td id="ctl00_ctl00_WebContentPlaceHolder_celOroZasekiTokyuCode" class="InputCell"><div id="ctl00_ctl00_WebContentPlaceHolder_updProgressOroJosenbiZasekiTokyuCode" style="display:none;">
+			
+                        <img alt="loading..." src="../image/loader.gif" title="loading..." />
+                    
+		</div><div id="ctl00_ctl00_WebContentPlaceHolder_updProgressOroHatchiCodeZasekiTokyuCode" style="display:none;">
+			
+                        <img alt="loading..." src="../image/loader.gif" title="loading..." />
+                    
+		</div><div id="ctl00_ctl00_WebContentPlaceHolder_updProgressOroFuneKbnZasekiTokyuCode" style="display:none;">
+			
+                        <img alt="loading..." src="../image/loader.gif" title="loading..." />
+                    
+		</div><div id="ctl00_ctl00_WebContentPlaceHolder_updOroZasekiTokyuCode">
+			
+                        <div id="divOroZasekiTokyuCode" class="SelectWrap MediumDropDown">
+                            <select name="ctl00$ctl00$WebContentPlaceHolder$cboOroZasekiTokyuCode" id="ctl00_ctl00_WebContentPlaceHolder_cboOroZasekiTokyuCode">
+				<option value="">等級を選択</option>
+
+			</select>
+                        </div>
+                    
+		</div></td><td id="ctl00_ctl00_WebContentPlaceHolder_celFukuroZasekiTokyuCode" class="InputCell" style="background-color:#D3D3D3;"><div id="ctl00_ctl00_WebContentPlaceHolder_updProgressFukuroJosenbiZasekiTokyuCode" style="display:none;">
+			
+                        <img alt="loading..." src="../image/loader.gif" title="loading..." />
+                    
+		</div><div id="ctl00_ctl00_WebContentPlaceHolder_updProgressFukuroHatchiCodeZasekiTokyuCode" style="display:none;">
+			
+                        <img alt="loading..." src="../image/loader.gif" title="loading..." />
+                    
+		</div><div id="ctl00_ctl00_WebContentPlaceHolder_updProgressFukuroFuneKbnZasekiTokyuCode" style="display:none;">
+			
+                        <img alt="loading..." src="../image/loader.gif" title="loading..." />
+                    
+		</div><div id="ctl00_ctl00_WebContentPlaceHolder_updFukuroZasekiTokyuCode">
+			
+                        <div id="divFukuroZasekiTokyuCode" class="SelectWrap MediumDropDown">
+                            <select name="ctl00$ctl00$WebContentPlaceHolder$cboFukuroZasekiTokyuCode" id="ctl00_ctl00_WebContentPlaceHolder_cboFukuroZasekiTokyuCode" disabled="disabled">
+				<option selected="selected" value="">等級を選択</option>
+
+			</select>
+                        </div>
+                    
+		</div></td>
+	</tr><tr>
+		<td class="TdRowTitle">
+                <div>
+                    <span id="ctl00_ctl00_WebContentPlaceHolder_lblNinsu">人数</span><span id="ctl00_ctl00_WebContentPlaceHolder_lblHissuNinsu" class="HissuIcon FontHiragino">必須</span>
+                </div>
+                <div class="ChuiJiko modal-syncer" data-target="acdn-target">
+                    <span id="ctl00_ctl00_WebContentPlaceHolder_Label2">入力方法</span>
+                </div>
+                <div id="acdn-target" class="acdn-target modal-content" style="display: none;">
+                    <table>
+                        <tr>
+                            <td class="TdNote" colspan="2">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            乗船人員を入力して下さい。(半角数字)
+                                            <br />
+                                            車両をご利用の場合は運転手を含めた人数を入力して下さい。
+                                            <br />
+                                            幼児(１歳以上６歳未満の未就学児)、乳児(1歳未満)は、無料となります。ただし、次の場合は小児運賃を適用いたします。（小児として入力して下さい）
+                                            <br />
+                                            <br />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-left: 10px;">
+                                            1.
+                                            幼児、乳児が座席(カーフェリー１等、ジェットフォイル)を１人で使用する場合。<br />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-left: 10px;">
+                                            2.
+                                            カーフェリー２等利用で、大人１名に同伴されている３人目からの幼児。カーフェリー１等以上、ジェットフォイル利用で、大人１名に同伴されている2人目からの幼児。<br />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-left: 10px;">
+                                            3.
+                                            大人が同伴しない幼児が乗船する場合。<br />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td><td id="ctl00_ctl00_WebContentPlaceHolder_celOroOtonaNinsu" class="InputCell"><div id="ctl00_ctl00_WebContentPlaceHolder_UpdPanelOroNinzu">
+			
+                        <table id="ctl00_ctl00_WebContentPlaceHolder_TableOroNinzuArea" class="NinzuFrame InputCell" border="0">
+				<tr>
+					<td class="NinzuArea"><span id="ctl00_ctl00_WebContentPlaceHolder_lblOroOtona" class="MainText">大人</span></td><td rowspan="2"><input name="ctl00$ctl00$WebContentPlaceHolder$txtOroOtonaNinsu" type="text" maxlength="3" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$WebContentPlaceHolder$txtOroOtonaNinsu\&#39;,\&#39;\&#39;)&#39;, 0)" onkeypress="if (WebForm_TextBoxKeyHandler(event) == false) return false;if(event.keyCode==13){WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&#39;ctl00$ctl00$WebContentPlaceHolder$btnKakunin&#39;, &#39;&#39;, true, &#39;&#39;, &#39;&#39;, false, true));return false;}" id="ctl00_ctl00_WebContentPlaceHolder_txtOroOtonaNinsu" class="SmallTextBox ImeNinsu Right" /><span id="ctl00_ctl00_WebContentPlaceHolder_lblOroMei1" class="MainText"> 名</span></td>
+				</tr><tr>
+					<td><span id="ctl00_ctl00_WebContentPlaceHolder_lblOroOtonaHosoku" class="HosokuText">　</span></td>
+				</tr><tr class="NinzuSpace">
+
+				</tr><tr>
+					<td><span id="ctl00_ctl00_WebContentPlaceHolder_lblOroShouni" class="MainText">小児</span></td><td rowspan="2"><input name="ctl00$ctl00$WebContentPlaceHolder$txtOroShoniNinsu" type="text" maxlength="3" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$WebContentPlaceHolder$txtOroShoniNinsu\&#39;,\&#39;\&#39;)&#39;, 0)" onkeypress="if (WebForm_TextBoxKeyHandler(event) == false) return false;if(event.keyCode==13){WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&#39;ctl00$ctl00$WebContentPlaceHolder$btnKakunin&#39;, &#39;&#39;, true, &#39;&#39;, &#39;&#39;, false, true));return false;}" id="ctl00_ctl00_WebContentPlaceHolder_txtOroShoniNinsu" class="SmallTextBox ImeNinsu Right" /><span id="ctl00_ctl00_WebContentPlaceHolder_lblOroMei2" class="MainText"> 名</span></td>
+				</tr><tr>
+					<td><span id="ctl00_ctl00_WebContentPlaceHolder_lblOroShouniHosoku" class="HosokuText">小学生対象</span></td>
+				</tr><tr class="NinzuSpace">
+
+				</tr><tr>
+					<td><span id="ctl00_ctl00_WebContentPlaceHolder_lblOroYouji" class="MainText">幼児</span></td><td rowspan="2"><input name="ctl00$ctl00$WebContentPlaceHolder$txtOroYojiNinsu" type="text" maxlength="2" id="ctl00_ctl00_WebContentPlaceHolder_txtOroYojiNinsu" class="SmallTextBox ImeNinsu Right" onkeypress="if(event.keyCode==13){    return false;}" /><span id="ctl00_ctl00_WebContentPlaceHolder_lblOroMei3" class="MainText"> 名</span></td>
+				</tr><tr>
+					<td><span id="ctl00_ctl00_WebContentPlaceHolder_lblOroYojiHosoku" class="HosokuText">１歳～６歳の未就学児</span></td>
+				</tr><tr class="NinzuSpace">
+
+				</tr><tr>
+					<td><span id="ctl00_ctl00_WebContentPlaceHolder_lblOroNyuuji" class="MainText">乳児</span></td><td rowspan="2"><input name="ctl00$ctl00$WebContentPlaceHolder$txtOroNyujiNinsu" type="text" maxlength="2" id="ctl00_ctl00_WebContentPlaceHolder_txtOroNyujiNinsu" class="SmallTextBox ImeNinsu Right" onkeypress="if(event.keyCode==13){    return false;}" /><span id="ctl00_ctl00_WebContentPlaceHolder_lblOroMei4" class="MainText"> 名</span></td>
+				</tr><tr>
+					<td><span id="ctl00_ctl00_WebContentPlaceHolder_lblOroNyujiHosoku" class="HosokuText">１歳未満</span></td>
+				</tr><tr class="NinzuSpace">
+
+				</tr><tr>
+					<td><span id="ctl00_ctl00_WebContentPlaceHolder_lblOroPet" class="MainText">ペット</span></td><td rowspan="2"><input name="ctl00$ctl00$WebContentPlaceHolder$txtOroPetSu" type="text" maxlength="2" id="ctl00_ctl00_WebContentPlaceHolder_txtOroPetSu" class="SmallTextBox ImeNinsu Right" onkeypress="if(event.keyCode==13){    return false;}" /><span id="ctl00_ctl00_WebContentPlaceHolder_lblOroMei5" class="MainText"> 匹</span></td>
+				</tr><tr>
+					<td>　</td>
+				</tr>
+			</table>
+                    
+		</div></td><td id="ctl00_ctl00_WebContentPlaceHolder_celFukuroOtonaNinsu" disabled="disabled" class="InputCell" style="background-color:#D3D3D3;"><div id="ctl00_ctl00_WebContentPlaceHolder_UpdPanelFukuroNinzu">
+			
+                        <table id="ctl00_ctl00_WebContentPlaceHolder_TableFukuroNinzuArea" class="NinzuFrame" border="0">
+				<tr>
+					<td class="NinzuArea"><span id="ctl00_ctl00_WebContentPlaceHolder_lblFukuroOtona" class="MainText">大人</span></td><td rowspan="2"><input name="ctl00$ctl00$WebContentPlaceHolder$txtFukuroOtonaNinsu" type="text" maxlength="3" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$WebContentPlaceHolder$txtFukuroOtonaNinsu\&#39;,\&#39;\&#39;)&#39;, 0)" onkeypress="if (WebForm_TextBoxKeyHandler(event) == false) return false;if(event.keyCode==13){WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&#39;ctl00$ctl00$WebContentPlaceHolder$btnKakunin&#39;, &#39;&#39;, true, &#39;&#39;, &#39;&#39;, false, true));return false;}" disabled="disabled" id="ctl00_ctl00_WebContentPlaceHolder_txtFukuroOtonaNinsu" class="SmallTextBox ImeNinsu Right" /><span id="ctl00_ctl00_WebContentPlaceHolder_lblFukuroMei1" class="MainText"> 名</span></td>
+				</tr><tr>
+					<td><span id="ctl00_ctl00_WebContentPlaceHolder_lblFukuroOtonaHosoku" class="HosokuText">　</span></td>
+				</tr><tr class="NinzuSpace">
+
+				</tr><tr>
+					<td><span id="ctl00_ctl00_WebContentPlaceHolder_lblFukuroShouni" class="MainText">小児</span></td><td rowspan="2"><input name="ctl00$ctl00$WebContentPlaceHolder$txtFukuroShoniNinsu" type="text" maxlength="3" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$WebContentPlaceHolder$txtFukuroShoniNinsu\&#39;,\&#39;\&#39;)&#39;, 0)" onkeypress="if (WebForm_TextBoxKeyHandler(event) == false) return false;if(event.keyCode==13){WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&#39;ctl00$ctl00$WebContentPlaceHolder$btnKakunin&#39;, &#39;&#39;, true, &#39;&#39;, &#39;&#39;, false, true));return false;}" disabled="disabled" id="ctl00_ctl00_WebContentPlaceHolder_txtFukuroShoniNinsu" class="SmallTextBox ImeNinsu Right" /><span id="ctl00_ctl00_WebContentPlaceHolder_lblFukuroMei2" class="MainText"> 名</span></td>
+				</tr><tr>
+					<td><span id="ctl00_ctl00_WebContentPlaceHolder_lblFukuroShoniHosoku" class="HosokuText">小学生対象</span></td>
+				</tr><tr class="NinzuSpace">
+
+				</tr><tr>
+					<td><span id="ctl00_ctl00_WebContentPlaceHolder_lblFukuroYouji" class="MainText">幼児</span></td><td rowspan="2"><input name="ctl00$ctl00$WebContentPlaceHolder$txtFukuroYojiNinsu" type="text" maxlength="2" disabled="disabled" id="ctl00_ctl00_WebContentPlaceHolder_txtFukuroYojiNinsu" class="SmallTextBox ImeNinsu Right" onkeypress="if(event.keyCode==13){    return false;}" /><span id="ctl00_ctl00_WebContentPlaceHolder_lblFukuroMei3" class="MainText"> 名</span></td>
+				</tr><tr>
+					<td><span id="ctl00_ctl00_WebContentPlaceHolder_lblFukuroYojiHosoku" class="HosokuText">１歳～６歳の未就学児</span></td>
+				</tr><tr class="NinzuSpace">
+
+				</tr><tr>
+					<td><span id="ctl00_ctl00_WebContentPlaceHolder_lblFukuroNyuuji" class="MainText">乳児</span></td><td rowspan="2"><input name="ctl00$ctl00$WebContentPlaceHolder$txtFukuroNyujiNinsu" type="text" maxlength="2" disabled="disabled" id="ctl00_ctl00_WebContentPlaceHolder_txtFukuroNyujiNinsu" class="SmallTextBox ImeNinsu Right" onkeypress="if(event.keyCode==13){    return false;}" /><span id="ctl00_ctl00_WebContentPlaceHolder_lblFukuroMei4" class="MainText"> 名</span></td>
+				</tr><tr>
+					<td><span id="ctl00_ctl00_WebContentPlaceHolder_lblFukuroNyujiHosoku" class="HosokuText">１歳未満</span></td>
+				</tr><tr class="NinzuSpace">
+
+				</tr><tr>
+					<td><span id="ctl00_ctl00_WebContentPlaceHolder_lblFukuroPet" class="MainText">ペット</span></td><td rowspan="2"><input name="ctl00$ctl00$WebContentPlaceHolder$txtFukuroPetSu" type="text" maxlength="2" disabled="disabled" id="ctl00_ctl00_WebContentPlaceHolder_txtFukuroPetSu" class="SmallTextBox ImeNinsu Right" onkeypress="if(event.keyCode==13){    return false;}" /><span id="ctl00_ctl00_WebContentPlaceHolder_lblFukuroMei5" class="MainText"> 匹</span></td>
+				</tr><tr>
+					<td>　</td>
+				</tr>
+			</table>
+                    
+		</div></td>
+	</tr><tr id="ctl00_ctl00_WebContentPlaceHolder_rowSharyoJoho">
+		<td class="TdRowTitle"><span id="ctl00_ctl00_WebContentPlaceHolder_lblSharyou">車両情報</span>
+                <!--<span id="ctl00_ctl00_WebContentPlaceHolder_lblNiniSharyou" class="NiniIcon">任意</span>-->
+                <div id="ctl00_ctl00_WebContentPlaceHolder_divSharyoSeiyaku" class="SharyoSeiyaku">
+                    <span id="ctl00_ctl00_WebContentPlaceHolder_lblSharyoSeiyaku">※予約は１台のみ<br>※車両のお申込みがある方は</span>
+                    <span id="ctl00_ctl00_WebContentPlaceHolder_lblSharyoHissu" class="HissuIcon FontHiragino">必須</span>
+                </div><div id="ctl00_ctl00_WebContentPlaceHolder_divSharyoChuiJiko" class="ChuiJiko modal-syncer" data-target="acdn-target2">
+                        <span id="ctl00_ctl00_WebContentPlaceHolder_lblSharyoChuiJiko">入力方法</span>
+                </div>
+                <div id="acdn-target2" class="acdn-target modal-content" style="display: none;">
+                    <table>
+                        <tr>
+                            <td colspan="2" class="TdNote">
+                                お車または二輪をご利用の場合は「車種」「車長(排気量)」を選択し「車両番号」を入力して下さい。お車の長さは車検証でご確認下さい。
+                                <br />
+                                ※複数台車両を予約される方は１台ずつ予約をお取りください。<br />※けん引車両、トラックはお電話にてお申込みください。
+                                <br />
+                                ※９ｍ以上のバスはお電話でご予約承ります。<br />
+                                <span style="color: #FF0000">
+                                </span>
+                                
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td><td id="ctl00_ctl00_WebContentPlaceHolder_celSharyou" class="InputCell" colspan="2"><table border="0" style="width:100%;">
+			<tr>
+				<td>
+                            <table style="width:100%;">
+                                <tr>
+                                    <td align="left">
+                                        <div id="ctl00_ctl00_WebContentPlaceHolder_updPanelbtnTorokuSharyo">
+					
+                                                
+                                            
+				</div>
+                                    </td>
+                                    <td align="right">
+                                        <div id="ctl00_ctl00_WebContentPlaceHolder_updPanelbtnSharyoClear">
+					
+                                                <input type="submit" name="ctl00$ctl00$WebContentPlaceHolder$btnSharyoClear" value="車両入力クリア" onclick="readystate=true;" id="ctl00_ctl00_WebContentPlaceHolder_btnSharyoClear" title="車両入力クリア" class="ButtonSkeletonBlue" style="padding-left:10px; padding-right:10px; height: 42px; font-size: 12px;" />
+                                            
+				</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+			</tr><tr>
+				<td><span id="ctl00_ctl00_WebContentPlaceHolder_lblSharyoHosoku" class="FontHiragino CarText">車両の情報を入力してください</span></td>
+			</tr><tr>
+				<td class="InputCell" colspan="2" style="white-space: nowrap;"><div id="ctl00_ctl00_WebContentPlaceHolder_updPanelShashuCode">
+					
+                                    <div id="divShashuCode" class="SelectWrap MediumDropDown">
+                                        <select name="ctl00$ctl00$WebContentPlaceHolder$cboShashuCode" onchange="document.getElementById(&#39;ctl00_ctl00_WebContentPlaceHolder_cboShashuHaikiryoCode&#39;).style.display=&#39;none&#39;;setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$WebContentPlaceHolder$cboShashuCode\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_ctl00_WebContentPlaceHolder_cboShashuCode">
+						<option selected="selected" value="">車種を選択</option>
+						<option value="G">乗用車</option>
+						<option value="W">ワゴン</option>
+						<option value="K">軽乗用車</option>
+						<option value="B">バス</option>
+						<option value="N">二輪</option>
+
+					</select>
+                                    </div>
+                                
+				</div></td>
+			</tr><tr>
+				<td colspan="2">
+                            <div class="ShaChoArea" style="line-height:56px; margin-right:5px; ">
+                                <div id="ctl00_ctl00_WebContentPlaceHolder_updShachoLabel">
+					
+                                        <div class="InputCell CarText" style="display:table-cell; vertical-align:middle;">
+                                            <span id="ctl00_ctl00_WebContentPlaceHolder_lblZenchoHeader">車長(排気量)</span>
+                                            
+                                        </div>
+                                    
+				</div><div id="ctl00_ctl00_WebContentPlaceHolder_updProgressShashuCodeShashuHaikiryoCode" style="display:none;">
+					
+                                        <img alt="loading..." src="../image/loader.gif" title="loading..." />
+                                    
+				</div>
+                            </div>
+                            <div class= "ShaChoArea" style="margin-top:8px;">
+                                <div id="ctl00_ctl00_WebContentPlaceHolder_updPanelShashuHaikiryoCode">
+					
+                                        <div id="ctl00_ctl00_WebContentPlaceHolder_divShacho" style="position: relative; overflow: hidden;">
+                                            
+                                            
+                                            <span id="ctl00_ctl00_WebContentPlaceHolder_spanShacho" style="top: 0px;">
+                                                <span id="ctl00_ctl00_WebContentPlaceHolder_lblShashuHaikiryoCode" class="InputCell CarText" style="display:inline-block;background-color:White;width:0px;"></span>
+                                                <input type="hidden" name="ctl00$ctl00$WebContentPlaceHolder$hidShashuHaikiryoCode" id="ctl00_ctl00_WebContentPlaceHolder_hidShashuHaikiryoCode" />
+                                            </span>
+                                            <div id="ctl00_ctl00_WebContentPlaceHolder_divHaikiryoCode" class="SelectWrap MediumDropDown" style="display:;">
+                                                <select name="ctl00$ctl00$WebContentPlaceHolder$cboShashuHaikiryoCode" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$WebContentPlaceHolder$cboShashuHaikiryoCode\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_ctl00_WebContentPlaceHolder_cboShashuHaikiryoCode">
+						<option value="">車長(排気量)を選択</option>
+
+					</select>
+                                            </div>
+                                        </div>
+                                    
+				</div>
+                            </div>
+                        </td>
+			</tr><tr>
+				<td>
+                            <div id ="divSharyoNumber" style="margin-top:24px;">
+                                <span id="ctl00_ctl00_WebContentPlaceHolder_lblSharyoNumber" class="FontHiragino CarText">車両のナンバー</span>
+                            </div>
+                        </td>
+			</tr><tr>
+				<td colspan="2"><div id="ctl00_ctl00_WebContentPlaceHolder_updPanelSharyoBango">
+					
+                                    <table border="0">
+						<tr class="MainText" align="left">
+							<td><span id="ctl00_ctl00_WebContentPlaceHolder_lblSharyoNumber1">登録地(全角)</span></td><td><span id="ctl00_ctl00_WebContentPlaceHolder_lblSharyoNumber2">車種No.(半角)</span></td><td><span id="ctl00_ctl00_WebContentPlaceHolder_lblSharyoNumber3">かな(全角)</span></td><td><span id="ctl00_ctl00_WebContentPlaceHolder_lblSharyoNumber4">ナンバー(半角)</span></td>
+						</tr><tr class="HosokuText" align="left">
+							<td><span id="ctl00_ctl00_WebContentPlaceHolder_lblSharyoNumberRei1">例：新潟</span></td><td><span id="ctl00_ctl00_WebContentPlaceHolder_lblSharyoNumberRei2">例：500</span></td><td><span id="ctl00_ctl00_WebContentPlaceHolder_lblSharyoNumberRei3">例：わ</span></td><td><span id="ctl00_ctl00_WebContentPlaceHolder_lblSharyoNumberRei4">例：1000</span></td>
+						</tr><tr>
+							<td><input name="ctl00$ctl00$WebContentPlaceHolder$txtRikuunShikyoku" type="text" maxlength="10" id="ctl00_ctl00_WebContentPlaceHolder_txtRikuunShikyoku" class="MediumTextBox" onkeypress="if(event.keyCode==13){    return false;}" style="-ms-ime-mode: active; margin-right:12px;" /></td><td><input name="ctl00$ctl00$WebContentPlaceHolder$txtBunruiBango" type="text" maxlength="3" id="ctl00_ctl00_WebContentPlaceHolder_txtBunruiBango" class="MediumTextBox" onkeypress="if(event.keyCode==13){    return false;}" style="-ms-ime-mode: inactive; margin-right:12px;" /></td><td><input name="ctl00$ctl00$WebContentPlaceHolder$txtHiragana" type="text" maxlength="1" id="ctl00_ctl00_WebContentPlaceHolder_txtHiragana" class="MediumTextBox" onkeypress="if(event.keyCode==13){    return false;}" style="-ms-ime-mode: active; margin-right:12px;" /></td><td><input name="ctl00$ctl00$WebContentPlaceHolder$txtBango" type="text" maxlength="4" id="ctl00_ctl00_WebContentPlaceHolder_txtBango" class="MediumTextBox" onkeypress="if(event.keyCode==13){    return false;}" style="-ms-ime-mode: inactive;" /></td>
+						</tr>
+					</table>
+                                    <div class="NormalCheckBoxWrap">
+                                    <input id="ctl00_ctl00_WebContentPlaceHolder_ChkRentaCar" type="checkbox" name="ctl00$ctl00$WebContentPlaceHolder$ChkRentaCar" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$WebContentPlaceHolder$ChkRentaCar\&#39;,\&#39;\&#39;)&#39;, 0)" /><label for="ctl00_ctl00_WebContentPlaceHolder_ChkRentaCar">レンタカー利用等で車両のナンバーがご不明な場合は、<br>こちらをチェックしてください<br>当日、車検証をお持ちのうえ窓口にてお手続きください</label>
+                                    </div>
+                                
+				</div></td>
+			</tr>
+		</table>
+                <div id="divSharyoChui" class="SharyoJohoChui">
+                    <br />※けん引車両、トラックはお電話にてお申込みください。
+                </div>
+            </td>
+	</tr>
+</table><div id="ctl00_ctl00_WebContentPlaceHolder_updPanelOtokuJoho">
+	
+            <div id="ctl00_ctl00_WebContentPlaceHolder_divOtokuJohoArea" class="TitleArea" style="margin-top: 72px; margin-bottom: 49px;">
+                <img id="ctl00_ctl00_WebContentPlaceHolder_imgOtokuJoho" class="TitleIcon" src="../image/icon_money.png" style="border-width:0px;" />
+                <span id="ctl00_ctl00_WebContentPlaceHolder_lblOtokuJoho" class="TitleLabel MoshikomiKbn">現在適用可能なお得情報</span></div>
+</div><div id="ctl00_ctl00_WebContentPlaceHolder_updPanelTouminWaribikiBox">
+	
+                <input name="ctl00$ctl00$WebContentPlaceHolder$chkTominShosaiHyoji" type="checkbox" id="ctl00_ctl00_WebContentPlaceHolder_chkTominShosaiHyoji" class="chkShosaiHyoji" />
+                <div id="ctl00_ctl00_WebContentPlaceHolder_celTouminWaribikiBox" class="OtokuFrame">
+
+                    <div id="divTominHdr02" class="OtokuDefaultText OtokuBlueText OtokuTitleText ImportantText"
+                        style="margin-top: 4px">
+                        島民割引</div><div id="divTominHdr03" class="OtokuDefaultText ImportantText" style="margin-top: 12px">
+                        ご利用条件</div><div id="divTominHdr04" class="OtokuDefaultText OtokuSmallText">
+                        ご利用条件/佐渡市民の方のみご利用いただけます</div><div id="ctl00_ctl00_WebContentPlaceHolder_divTominShosai" class="ShosaiBox">
+                        <div id="ctl00_ctl00_WebContentPlaceHolder_divTominShosaiFrame" class="ShosaiFrame">
+                            <div id="ctl00_ctl00_WebContentPlaceHolder_divTominShosaiText" class="ShosaiText">
+                                <label for="ctl00_ctl00_WebContentPlaceHolder_chkTominShosaiHyoji" id="ctl00_ctl00_WebContentPlaceHolder_lblTominShosaiHyoji" class="ShosaiLabel">詳細を見る/申し込みに進む</label><div id="divTominShosaiLine" class="ShosaiLine">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="ctl00_ctl00_WebContentPlaceHolder_divTominShosaiMeisai" class="ShosaiMeisai">
+                            <div id="ctl00_ctl00_WebContentPlaceHolder_divTominShosaiMeisaiBox">
+                                <div id="divShosai01" class="OtokuDefaultText OtokuBlueText">
+                                    【ご利用条件】</div><div id="divShosai02" class="OtokuBlueText OtokuMediumText" style="margin-top:8px">
+                                    佐渡市より発行された、有効期限内の『佐渡市民サービスカード』をお持ちの方</div><div id="divShosai03" class="OtokuDefaultText" style="margin-top:24px">
+                                    【ご注意】</div><div id="divShosai04" class="OtokuDefaultText" style="margin-top:8px">
+                                    ●　インターネット予約では、『佐渡市民サービスカード』をお持ちの方と『佐渡市民サービスカード』をお持ちでない方のご予約を一緒に行うことはできません。上記の場合のご予約は、電話または窓口にてお申し込みください。</div><div id="divShosai05" class="OtokuDefaultText">
+                                    ●　島民割引は、お一人様１日につき、１航路１回までの適用となります。</div><div id="divShosai06" class="OtokuDefaultText">
+                                    ●　ご本人様の確認をさせて頂きますので、乗船日当日はご予約された大人・小児の方の『佐渡市民サービスカード』をご持参ください。</div><div id="divShosai07" class="OtokuRedText">
+                                    ※ 乗船当日に『佐渡市民サービスカード』のご提示がない場合、島民割引が適用されませんのでご注意ください。</div></div><div id="ctl00_ctl00_WebContentPlaceHolder_divTominMoshikomiKbn" class="MoshikomiArea">
+                                <div class="InputCell">
+                                    <div class="NormalCheckBoxWrap">
+                                        <input id="ctl00_ctl00_WebContentPlaceHolder_chkToumin" type="checkbox" name="ctl00$ctl00$WebContentPlaceHolder$chkToumin" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$WebContentPlaceHolder$chkToumin\&#39;,\&#39;\&#39;)&#39;, 0)" /><label for="ctl00_ctl00_WebContentPlaceHolder_chkToumin">申し込む</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+</div>
+
+        <div id="ctl00_ctl00_WebContentPlaceHolder_updPanelPeachMD">
+	
+            <input name="ctl00$ctl00$WebContentPlaceHolder$chkPeachShosaiHyoji" type="checkbox" id="ctl00_ctl00_WebContentPlaceHolder_chkPeachShosaiHyoji" class="chkShosaiHyoji" />
+            
+        
+</div>
+
+    <div id="ctl00_ctl00_WebContentPlaceHolder_updPanelSanpakuWaribikiBox">
+	
+            <input name="ctl00$ctl00$WebContentPlaceHolder$chkSanpakuShosaiHyoji" type="checkbox" id="ctl00_ctl00_WebContentPlaceHolder_chkSanpakuShosaiHyoji" class="chkShosaiHyoji" />
+            
+        
+</div>
+
+    <div id="ctl00_ctl00_WebContentPlaceHolder_updPanelSenior">
+	
+            
+        
+</div>
+
+    <div id="ctl00_ctl00_WebContentPlaceHolder_updPanelRakuten">
+	
+            <input name="ctl00$ctl00$WebContentPlaceHolder$chkOkesaRakutenShosaiHyoji" type="checkbox" id="ctl00_ctl00_WebContentPlaceHolder_chkOkesaRakutenShosaiHyoji" class="chkShosaiHyoji" />
+            
+</div><div id="ctl00_ctl00_WebContentPlaceHolder_updPanelJaran">
+	
+            <input name="ctl00$ctl00$WebContentPlaceHolder$chkOkesaJaranShosaiHyoji" type="checkbox" id="ctl00_ctl00_WebContentPlaceHolder_chkOkesaJaranShosaiHyoji" class="chkShosaiHyoji" />
+            
+</div><table style="width:722px; margin-top:72px;">
+        <tr>
+           <td class="FooterText">
+                <span id="ctl00_ctl00_WebContentPlaceHolder_lblKakunin">内容を確認頂きよろしければ「お客様情報の入力」を選択して下さい。</span></td></tr></table><div class="ButtonArea">
+        
+        <input type="submit" name="ctl00$ctl00$WebContentPlaceHolder$btnKakunin" value="お客様情報の入力" id="ctl00_ctl00_WebContentPlaceHolder_btnKakunin" title="お客様情報の入力" class="ButtonBlue" />
+        <input type="submit" name="ctl00$ctl00$WebContentPlaceHolder$btnYoyakuChushi" value="予約中止" onclick="if(confirm(&#39;予約を中止します。よろしいですか？&#39;)){return true;}else{readystate=true;return false};" id="ctl00_ctl00_WebContentPlaceHolder_btnYoyakuChushi" title="予約中止" class="ButtonSkeletonRed" />
+    </div>
+
+
+    <input type="hidden" name="ctl00$ctl00$WebContentPlaceHolder$hidOroBinId" id="ctl00_ctl00_WebContentPlaceHolder_hidOroBinId" />
+    <input type="hidden" name="ctl00$ctl00$WebContentPlaceHolder$hidFukuroBinId" id="ctl00_ctl00_WebContentPlaceHolder_hidFukuroBinId" />
+    <input type="hidden" name="ctl00$ctl00$WebContentPlaceHolder$hidOroTokyu" id="ctl00_ctl00_WebContentPlaceHolder_hidOroTokyu" />
+    <input type="hidden" name="ctl00$ctl00$WebContentPlaceHolder$hidFukuroTokyu" id="ctl00_ctl00_WebContentPlaceHolder_hidFukuroTokyu" />
+    <input type="hidden" name="ctl00$ctl00$WebContentPlaceHolder$hidOroNinzu" id="ctl00_ctl00_WebContentPlaceHolder_hidOroNinzu" value="0" />
+    <input type="hidden" name="ctl00$ctl00$WebContentPlaceHolder$hidFukuroNinzu" id="ctl00_ctl00_WebContentPlaceHolder_hidFukuroNinzu" value="0" />
+    <input type="hidden" name="ctl00$ctl00$WebContentPlaceHolder$hidRegional" id="ctl00_ctl00_WebContentPlaceHolder_hidRegional" value="ja-JP" />
+    <input type="hidden" name="ctl00$ctl00$WebContentPlaceHolder$hidSharyoSelect" id="ctl00_ctl00_WebContentPlaceHolder_hidSharyoSelect" />
+     
+
+            </div>
+        </div>
+
+
+
+        <div class="PageFooter fontHiragino">
+            <span id="ctl00_ctl00_lblSadoSteamShipContact">インターネット予約に関するお問い合わせ先：佐渡汽船予約センター&nbsp;&nbsp;TEL:025-245-6122(08:30-18:00)</span><br />
+            <span style="color:red;">&nbsp;</span>
+            <br />
+            <span id="ctl00_ctl00_lblCopyright">Copyright (C) Sado Steam Ship CO.,LTD.All Rights Reserved.</span>
+		    <input type="hidden" name="ctl00$ctl00$hidid" id="ctl00_ctl00_hidid" value="01" />
+	    </div>
+
+    
+
+<script type="text/javascript">
+//<![CDATA[
+yoyakushokaiflg=false;torokusharyoflg=false;Sys.Application.add_init(function() {
+    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":"ctl00_ctl00_WebContentPlaceHolder_updPnlOroJosenbi","displayAfter":10,"dynamicLayout":true}, null, null, $get("ctl00_ctl00_WebContentPlaceHolder_updProgressOroJosenbiBinID"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":"ctl00_ctl00_WebContentPlaceHolder_updPanelOroHatchiCode","displayAfter":10,"dynamicLayout":true}, null, null, $get("ctl00_ctl00_WebContentPlaceHolder_updProgressOroHatchiCodeBinID"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":"ctl00_ctl00_WebContentPlaceHolder_updPanelOroFuneKbn","displayAfter":10,"dynamicLayout":true}, null, null, $get("ctl00_ctl00_WebContentPlaceHolder_updProgressOroFuneKbnBinID"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":"ctl00_ctl00_WebContentPlaceHolder_updPnlFukuroJosenbi","displayAfter":10,"dynamicLayout":true}, null, null, $get("ctl00_ctl00_WebContentPlaceHolder_updProgressFukuroJosenbiBinID"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":"ctl00_ctl00_WebContentPlaceHolder_updPanelFukuroHatchiCode","displayAfter":10,"dynamicLayout":true}, null, null, $get("ctl00_ctl00_WebContentPlaceHolder_updProgressFukuroHatchiCodeBinID"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":"ctl00_ctl00_WebContentPlaceHolder_updPanelFukuroFuneKbn","displayAfter":10,"dynamicLayout":true}, null, null, $get("ctl00_ctl00_WebContentPlaceHolder_updProgressFukuroFuneKbnBinID"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":"ctl00_ctl00_WebContentPlaceHolder_updPnlOroJosenbi","displayAfter":10,"dynamicLayout":true}, null, null, $get("ctl00_ctl00_WebContentPlaceHolder_updProgressOroJosenbiZasekiTokyuCode"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":"ctl00_ctl00_WebContentPlaceHolder_updPanelOroHatchiCode","displayAfter":10,"dynamicLayout":true}, null, null, $get("ctl00_ctl00_WebContentPlaceHolder_updProgressOroHatchiCodeZasekiTokyuCode"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":"ctl00_ctl00_WebContentPlaceHolder_updPanelOroFuneKbn","displayAfter":10,"dynamicLayout":true}, null, null, $get("ctl00_ctl00_WebContentPlaceHolder_updProgressOroFuneKbnZasekiTokyuCode"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":"ctl00_ctl00_WebContentPlaceHolder_updPnlFukuroJosenbi","displayAfter":10,"dynamicLayout":true}, null, null, $get("ctl00_ctl00_WebContentPlaceHolder_updProgressFukuroJosenbiZasekiTokyuCode"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":"ctl00_ctl00_WebContentPlaceHolder_updPanelFukuroHatchiCode","displayAfter":10,"dynamicLayout":true}, null, null, $get("ctl00_ctl00_WebContentPlaceHolder_updProgressFukuroHatchiCodeZasekiTokyuCode"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":"ctl00_ctl00_WebContentPlaceHolder_updPanelFukuroFuneKbn","displayAfter":10,"dynamicLayout":true}, null, null, $get("ctl00_ctl00_WebContentPlaceHolder_updProgressFukuroFuneKbnZasekiTokyuCode"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":"ctl00_ctl00_WebContentPlaceHolder_updPanelShashuCode","displayAfter":10,"dynamicLayout":true}, null, null, $get("ctl00_ctl00_WebContentPlaceHolder_updProgressShashuCodeShashuHaikiryoCode"));
+});
+//]]>
+</script>
+</form>
+    <div id="divUtil"></div>
+    <script type="text/javascript">
+    //<![CDATA[
+        readystate = true;
+    //]]>
+    </script>
+    <script type="text/javascript">(function(d,u){var b=d.getElementsByTagName("script")[0],j=d.createElement("script");j.async=true;j.src=u;b.parentNode.insertBefore(j,b);})(document,"//img.ak.impact-ad.jp/ut/ca9df47f463c4753_2582.js");</script><noscript><iframe src="//nspt.unitag.jp/ca9df47f463c4753_2582.php" width="0" height="0" frameborder="0"></iframe></noscript>
+<script type="text/javascript">
+  (function () {
+    var tagjs = document.createElement("script");
+    var s = document.getElementsByTagName("script")[0];
+    tagjs.async = true;
+    tagjs.src = "//s.yjtag.jp/tag.js#site=ggPjk4U";
+    s.parentNode.insertBefore(tagjs, s);
+  }());
+</script>
+<noscript>
+  <iframe src="//b.yjtag.jp/iframe?c=ggPjk4U" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+</noscript>
+
+</body>
 </html>

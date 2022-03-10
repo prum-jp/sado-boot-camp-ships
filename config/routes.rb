@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   get 'fares/car-ferry', to: 'fares#car_ferry'
   get 'fares/jetfoil', to: 'fares#jetfoil'
   get 'reserve/index', to: 'reserve#index'
-  get 'reservation/index', to: 'reservation#index'
+  get 'reservation', to: 'reservation#index'
 end

@@ -1,5 +1,7 @@
 class ReservationController < ApplicationController
     def index
+      #@team = "Hello World"#
+      #render template: "reservation/index"
       render :index
     end
 
@@ -7,4 +9,4 @@ class ReservationController < ApplicationController
       
     end
   end
-  
+emd
