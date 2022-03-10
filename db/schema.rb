@@ -59,18 +59,18 @@ ActiveRecord::Schema.define(version: 2022_03_02_052955) do
   end
 
   create_table "reservation_details", force: :cascade do |t|
-    t.bigint "reserve_id", null: false
-    t.integer "route_section", null: false
-    t.date "use_day", null: false
-    t.bigint "timetable_id", null: false
-    t.bigint "ship_class_id", null: false
-    t.integer "price", null: false
-    t.integer "adult_reservation_number", null: false
+    t.bigint "reserve_id", null: false #予約詳細ID 予約テーブルの子データ#
+    t.integer "route_section", null: false #往復/片道#
+    t.date "use_day", null: false #予約日#
+    t.bigint "timetable_id", null: false #時間表ID 登録された時刻表テーブルのIDが入る#
+    t.bigint "ship_class_id", null: false #カーフェリー/ジェットフォイル#
+    t.integer "price", null: false #値段#
+    t.integer "adult_reservation_number", null: false #大人人数#
     t.integer "child_reservation_number", null: false
     t.integer "infant_reservation_number", null: false
     t.integer "baby_reservation_number", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", precision: 6, null: false #予約完了時間#
+    t.datetime "updated_at", precision: 6, null: false #予約内容更新時間#
     t.index ["reserve_id"], name: "index_reservation_details_on_reserve_id"
     t.index ["ship_class_id"], name: "index_reservation_details_on_ship_class_id"
     t.index ["timetable_id"], name: "index_reservation_details_on_timetable_id"
