@@ -13,5 +13,4 @@ Rails.application.routes.draw do
   get 'fares/jetfoil', to: 'fares#jetfoil'
   get 'reserve/index', to: 'reserve#index'
   get 'reservation', to: 'reservation#index'
-
 end
