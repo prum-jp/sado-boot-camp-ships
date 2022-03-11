@@ -4,15 +4,12 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/yoyaku.css">
   <title>ご予約</title>
 </head>
 <body>
+
   <header style="text-align:center">
-    <div class="TitleArea" style="margin-top:74px"> 
-        <img class="TitleIcon" src="./img/icon-shipfront.png"><span class="TitleLabel MoshikomiKbn">申込区分</span><br><label><input id="" type="radio" name="q1" value="片道のみの予約">片道のみの予約</label><label><input type="radio" name="q1" value="往復の予約">往復の予約</label>
-     </div>
+    <div class="TitleArea" style="margin-top:74px"> <img class="TitleIcon" src="./img/icon-shipfront.png"><span class="TitleLabel MoshikomiKbn">申込区分</span><br><label><input id="" type="radio" name="roundtrip_section" value="one_way">片道のみの予約</label><label><input type="radio" name="roundtrip_section" value="round_trip">往復の予約</label> </div>
   </header>
   <section>
     <div class="MainContentArea">
@@ -98,25 +95,13 @@
                 <td>等級</td>
                 <td>
                   <dl>
-                    <dd class="select_wrap"> <select name="contact_type">
-                                            <option value="selected disabled">等級を選択</option>
-                                        </select> </dd>
-                  </dl>
-                </td>
-                <td>
-                  <dl>
-                    <dd class="select_wrap"> <select name="contact_type">
-                                            <option value="selected disabled">等級を選択</option>
-                                        </select> </dd>
-                  </dl>
-                </td>
-              </tr>
-              <tr>
-                <td>等級</td>
-                <td>
-                  <dl>
-                    <dd class="select_wrap"> <select name="contact_type">
-                                            <option value="selected disabled">等級を選択</option>
+                    <dd class="select_wrap"> <select name="contact_type" id="first-ship-class">
+                                            <option value="0">等級を選択</option>
+                                            <% @ship_class.each do |ship_class| %>
+                                              <option value="<%= ship_class.id %>" data-ship-section="<%= ship_class.ship_section %>" style="display: none">
+                                                <%= ship_class.name %>
+                                              </option>
+                                            <% end %>
                                         </select> </dd>
                   </dl>
                 </td>
@@ -184,86 +169,93 @@
       </div>
     </div>
   </section>
-  <!-- bootstrap-datepickerのjavascriptコード -->
-  <script type="text/javascript" src="../bootstrap-datepicker-1.6.4-dist/js/bootstrap-datepicker.min.js"></script>
-  <script type="text/javascript" src="../bootstrap-datepicker-1.6.4-dist/locales/bootstrap-datepicker.ja.min.js"></script>
-  <!-- Optional JavaScript; choose one of the two! -->
-  <!-- Option 1: Bootstrap Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
-<!-- Optional JavaScript; choose one of the two! -->
-<!-- Option 1: Bootstrap Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <script>
-const firstPort = document.getElementById('first-port')
-const firstShipSection = document.getElementById('first-ship-section')
-const firstTime = document.getElementById('first-time')
+  const firstPort = document.getElementById('first-port')
+  const firstShipSection = document.getElementById('first-ship-section')
+  const firstTime = document.getElementById('first-time')
+  const firstShipClass = document.getElementById('first-ship-class')
 
-firstPort.addEventListener('change', (event) => {
-  changePort()
-  changeShipSection()
-});
+  firstPort.addEventListener('change', (event) => {
+    changePort()
+    changeShipSection()
+    changeTime()
+  });
 
-firstShipSection.addEventListener('change', (event) => {
-  changeShipSection()
-});
+  firstShipSection.addEventListener('change', (event) => {
+    changeShipSection()
+    changeTime()
+  });
 
-function changePort() {
-  // 船区分を初期化
-  firstShipSection.value = 0
-  // 乗船時間を初期化
-  firstTime.value = 0
-  // 発地が選択済の場合
-  if (firstPort.value != 0) {
-    // 船区分を選択できるように
-    Array.prototype.forEach.call(firstShipSection.children, function(child) {
-      child.style.display = 'block'
-    })
-  } else { // 発地が未選択の場合
-    // 船区分を選択できないように
-    Array.prototype.forEach.call(firstShipSection.children, function(child) {
-      child.style.display = 'none'
-    })
-  }
-  // ただし「船を選択」は常に表示させる
-  firstShipSection.children[0].style.display = 'block'
-}
+  firstTime.addEventListener('change', (event) => {
+    changeTime()
+  });
 
-function changeShipSection() {
-  // 乗船時間を初期化
-  firstTime.value = 0
-  // 船区分が未選択の場合
-  if (firstShipSection.value == 0) {
-    // 乗船時間の選択肢を出さないように
-    Array.prototype.forEach.call(firstTime.children, function(child) {
-      child.style.display = 'none'
-    })
- } else { // 船区分が選択済の場合
-    Array.prototype.forEach.call(firstTime.children, function(child) {
-      // 発地と船区分が合致するものを表示、合致しないものを非表示に
-      if (child.dataset.portId == firstPort.value && child.dataset.shipSection == firstShipSection.value) {
+  function changePort() {
+    // 船区分を初期化
+    firstShipSection.value = 0
+    // 乗船時間を初期化
+    firstTime.value = 0
+    // 発地が選択済の場合
+    if (firstPort.value != 0) {
+      // 船区分を選択できるように
+      Array.prototype.forEach.call(firstShipSection.children, function(child) {
         child.style.display = 'block'
-      } else {
+      })
+    } else { // 発地が未選択の場合
+      // 船区分を選択できないように
+      Array.prototype.forEach.call(firstShipSection.children, function(child) {
         child.style.display = 'none'
-      }
-    })
+      })
+    }
+    // ただし「船を選択」は常に表示させる
+    firstShipSection.children[0].style.display = 'block'
   }
-  // ただし「乗船時間を選択」は常に表示させる
-  firstTime.children[0].style.display = 'block'
-}
 
+  function changeShipSection() {
+    // 乗船時間を初期化
+    firstTime.value = 0
+    // 船区分が未選択の場合
+    if (firstShipSection.value == 0) {
+      // 乗船時間の選択肢を出さないように
+      Array.prototype.forEach.call(firstTime.children, function(child) {
+        child.style.display = 'none'
+      })
+   } else { // 船区分が選択済の場合
+      Array.prototype.forEach.call(firstTime.children, function(child) {
+        // 発地と船区分が合致するものを表示、合致しないものを非表示に
+        if (child.dataset.portId == firstPort.value && child.dataset.shipSection == firstShipSection.value) {
+          child.style.display = 'block'
+        } else {
+          child.style.display = 'none'
+        }
+      })
+    }
+    // ただし「乗船時間を選択」は常に表示させる
+    firstTime.children[0].style.display = 'block'
+  }
+
+  function changeTime() {
+    // 等級を初期化
+    firstShipClass.value = 0
+    // 乗船時間が未選択の場合
+    if (firstTime.value == 0) {
+      // 等級の選択肢を出さないように
+      Array.prototype.forEach.call(firstShipClass.children, function(child) {
+        child.style.display = 'none'
+      })
+   } else { // 船区分が選択済の場合
+      Array.prototype.forEach.call(firstShipClass.children, function(child) {
+        // 発地と船区分が合致するものを表示、合致しないものを非表示に
+        if (child.dataset.shipSection == firstShipSection.value) {
+          child.style.display = 'block'
+        } else {
+          child.style.display = 'none'
+        }
+      })
+    }
+    // ただし「乗船時間を選択」は常に表示させる
+    firstShipClass.children[0].style.display = 'block'
+  }
 </script>
-<script src="main.js"></script>
-</body>
-</html>
