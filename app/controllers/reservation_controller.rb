@@ -3,6 +3,7 @@ class ReservationController < ApplicationController
     #@team = "Hello World"#
     #render template: "reservation/index"
     @ports = Port.all
+    @time_tables = Timetable.all
     render :index
   end
 
