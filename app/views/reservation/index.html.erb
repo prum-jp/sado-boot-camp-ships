@@ -34,10 +34,9 @@
                   <dl>
                     <dd class="select_wrap"> <select name="contact_type">
                                             <option value="selected disabled">発地を選択</option>
-                                            <option value="select1">新潟</option>
-                                            <option value="select2">両津</option>
-                                            <option value="select3">直江津</option>
-                                            <option value="select4">小木</option>
+                                            <% @ports.each do |port| %>
+                                              <option value="<%= port.id %>"><%= port.name %></option>
+                                            <% end %>
                                         </select> </dd>
                   </dl>
                 </td>
@@ -59,6 +58,9 @@
                   <dl>
                     <dd class="select_wrap"> <select name="contact_type">
                                             <option value="selected disabled">船を選択</option>
+                                            <% Ship.ship_sections.keys.each do |ship_section| %>
+                                              <option value="<%= ship_section %>"><%= I18n.t("ships.ship_sctions.#{ship_section}") %></option>
+                                            <% end %>
                                         </select> </dd>
                   </dl>
                 </td>

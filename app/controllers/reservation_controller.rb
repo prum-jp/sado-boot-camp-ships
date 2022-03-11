@@ -1,12 +1,11 @@
 class ReservationController < ApplicationController
-    def index
-      #@team = "Hello World"#
-      #render template: "reservation/index"
-      render :index
-    end
-
-    def route_section
-      
-    end
+  def index
+    #@team = "Hello World"#
+    #render template: "reservation/index"
+    @ports = Port.all
+    render :index
   end
-emd
+
+  def route_section
+  end
+end

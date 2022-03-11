@@ -5,4 +5,8 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: 確認用パスワード
-        remember_me: 次回から自動的にログイン 
+        remember_me: 次回から自動的にログイン
+  ships:
+    ship_sctions:
+      car_ferry: カーフェリー
+      jetfoil: ジェットフォイル
